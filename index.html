@@ -1,0 +1,187 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Anchal Job Tracker</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600&family=IBM+Plex+Mono:wght@500&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<style>
+/* Layout: sticky filter bar over a ranked list of job rows; a row expands to show fit, gaps and the tailored resume. */
+:root{
+  --bg:#f6f7f9; --surface:#ffffff; --fg:#17202e; --muted:#5d6878; --line:#dde1e8;
+  --accent:#1d4ed8; --accent-fg:#ffffff;
+  --good:#146c43; --good-bg:#dff3e7; --warn:#8a5a00; --warn-bg:#fbeccb; --bad:#8f2b2b; --bad-bg:#f6dcdc; --info-bg:#e3ebfd;
+  --display:"Fraunces",Georgia,serif; --body:"IBM Plex Sans",system-ui,sans-serif; --mono:"IBM Plex Mono",ui-monospace,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#0f141b; --surface:#171e28; --fg:#e6eaf0; --muted:#9aa5b5; --line:#2a3342;
+  --accent:#7aa2ff; --accent-fg:#0f141b;
+  --good:#6fd3a0; --good-bg:#16382a; --warn:#f0c060; --warn-bg:#3d2f10; --bad:#f19a9a; --bad-bg:#401c1c; --info-bg:#1e2a47; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0f141b; --surface:#171e28; --fg:#e6eaf0; --muted:#9aa5b5; --line:#2a3342;
+  --accent:#7aa2ff; --accent-fg:#0f141b;
+  --good:#6fd3a0; --good-bg:#16382a; --warn:#f0c060; --warn-bg:#3d2f10; --bad:#f19a9a; --bad-bg:#401c1c; --info-bg:#1e2a47; color-scheme:dark}
+body{background:var(--bg);color:var(--fg);font:15px/1.5 var(--body);
+  padding-block:24px 48px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.wrap{max-width:980px;margin:0 auto}
+h1{font:600 28px/1.15 var(--display);margin:0 0 4px;text-wrap:balance}
+.sub{color:var(--muted);margin:0 0 20px}
+.bar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-bottom:16px}
+.bar button{font:500 13px var(--body);padding:6px 12px;border:1px solid var(--line);background:var(--surface);color:var(--fg);border-radius:999px;cursor:pointer}
+.bar button[aria-pressed="true"]{background:var(--accent);color:var(--accent-fg);border-color:var(--accent)}
+.count{margin-left:auto;color:var(--muted);font-size:13px}
+button:focus-visible,select:focus-visible,summary:focus-visible,a:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.list{display:flex;flex-direction:column;gap:10px;padding:0;margin:0;list-style:none}
+.job{background:var(--surface);border:1px solid var(--line);border-radius:8px}
+.row{display:grid;grid-template-columns:56px minmax(0,1fr) auto;gap:14px;padding:14px;align-items:start}
+.score{font:500 20px var(--mono);text-align:center;border-radius:6px;padding:8px 0;font-variant-numeric:tabular-nums}
+.s-hi{background:var(--good-bg);color:var(--good)} .s-mid{background:var(--info-bg);color:var(--accent)} .s-lo{background:var(--warn-bg);color:var(--warn)}
+.title{font-weight:600;margin:0}
+.meta{color:var(--muted);font-size:13px;margin:2px 0 0}
+.new{font:500 11px var(--mono);background:var(--accent);color:var(--accent-fg);padding:1px 6px;border-radius:4px;margin-left:6px;vertical-align:1px}
+.side{display:flex;flex-direction:column;gap:8px;align-items:flex-end}
+select{font:inherit;font-size:13px;padding:5px 8px;border:1px solid var(--line);border-radius:6px;background:var(--surface);color:var(--fg)}
+.apply{font-size:13px;font-weight:600;color:var(--accent);text-decoration:none}
+.apply:hover{text-decoration:underline}
+details{border-top:1px solid var(--line);padding:0 14px}
+summary{cursor:pointer;padding:10px 0;font-size:13px;color:var(--muted)}
+.det{display:grid;gap:12px;padding:0 0 14px}
+.det h3{font:600 11px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin:0 0 2px}
+.det p{margin:0}
+.gap{color:var(--bad)}
+pre{white-space:pre-wrap;font:13px/1.5 var(--body);background:var(--bg);border:1px solid var(--line);border-radius:6px;padding:12px;margin:0;overflow-wrap:anywhere}
+.copy{font:500 13px var(--body);padding:6px 12px;border:1px solid var(--line);background:var(--surface);color:var(--fg);border-radius:6px;cursor:pointer;justify-self:start}
+.btns{display:flex;flex-wrap:wrap;gap:8px}
+.st-Applied{opacity:.75}.st-Skip{opacity:.5}
+.prof{background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:14px;margin-bottom:16px;display:grid;gap:10px}
+.prof h2{font:600 11px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin:0}
+.prof .f{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px}
+.prof label{display:grid;gap:3px;font-size:12px;color:var(--muted);min-width:0}
+.prof input{font:inherit;font-size:14px;padding:7px 9px;border:1px solid var(--line);border-radius:6px;background:var(--bg);color:var(--fg);min-width:0}
+.prof .r{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.empty{padding:32px 16px;text-align:center;color:var(--muted);border:1px dashed var(--line);border-radius:8px}
+@media(max-width:560px){.row{grid-template-columns:48px minmax(0,1fr)}.side{grid-column:1/-1;flex-direction:row;justify-content:space-between;align-items:center}}
+</style></head><body>
+
+<div class="wrap">
+  <h1>Anchal Job Tracker</h1>
+  <p class="sub">Content writing roles, scored against the resume. Updated every morning. Apply only via each posting link. Statuses are kept in your browser.</p>
+  <form class="prof" id="prof">
+    <h2>Your contact details (added to every tailored resume)</h2>
+    <div class="f">
+      <label>Mobile<input id="p-phone" type="tel" autocomplete="tel" placeholder="+91 98765 43210"></label>
+      <label>Email<input id="p-email" type="email" autocomplete="email" placeholder="you@example.com"></label>
+      <label>LinkedIn<input id="p-li" type="text" placeholder="linkedin.com/in/your-id"></label>
+    </div>
+    <div class="r"><button class="copy" type="submit">Save details</button><span class="meta" id="p-msg">Stays in this browser only; never uploaded.</span></div>
+  </form>
+  <div class="bar" id="bar" role="group" aria-label="Filter by status"></div>
+  <ul class="list" id="list"></ul>
+</div>
+
+<script>
+const STATUSES=["New","Approved to apply","Applied","Skip"];
+let jobs=[],filter="All";const canWrite=true;let LS={};try{LS=JSON.parse(localStorage.getItem("st")||"{}")}catch{}
+const $=s=>document.querySelector(s);
+const el=(t,c,x)=>{const e=document.createElement(t);if(c)e.className=c;if(x!=null)e.textContent=x;return e};
+const today=new Date().toISOString().slice(0,10);
+
+function renderBar(){
+  const bar=$("#bar");bar.textContent="";
+  ["All",...STATUSES].forEach(s=>{
+    const b=el("button",null,s);b.type="button";b.setAttribute("aria-pressed",String(s===filter));
+    b.onclick=()=>{filter=s;render()};bar.append(b);
+  });
+  const c=el("span","count",jobs.length+" jobs");c.id="count";bar.append(c);
+}
+const PH="PHONE | EMAIL | Hyderabad | LINKEDIN (fill in before sending)";
+const BASE={name:"ANCHAL NAYAK",title:"CONTENT WRITER",
+  education:[{line:"PGRRCDE, Osmania University, Hyderabad",sub:"Master of Arts – Psychology | 8.03 CGPA",dates:"2023 – 2025"},{line:"Ramadevi Women's University, Bhubaneswar",sub:"Bachelor of Arts – Psychology | 9.27 CGPA",dates:"2020 – 2023"}],
+  certifications:["Business Communication Skills: Business Writing & Grammar — Alex Genadinik (Udemy)","150 Digital Marketing Hacks — Robin and Jesper (Udemy)"]};
+let profile={phone:"",email:"",linkedin:""};
+const contact=()=>[profile.phone,profile.email,"Hyderabad",profile.linkedin].filter(Boolean).join(" | ");
+const texEsc=t=>t.replace(/\\/g,"/").replace(/[&%$#_{}]/g,m=>"\\"+m).replace(/~/g,"\\~{}").replace(/\^/g,"\\^{}");
+const latexFor=j=>profile.phone||profile.email||profile.linkedin?j.latex.replace(PH,texEsc(contact())):j.latex;
+async function savePdf(j,btn,fname){
+  const J=window.jspdf&&window.jspdf.jsPDF;if(!J){btn.textContent="PDF library blocked";return}
+  try{
+    
+    const doc=new J({unit:"pt",format:"a4"}),W=doc.internal.pageSize.getWidth(),H=doc.internal.pageSize.getHeight(),M=48,mw=W-2*M;let y=M;
+    const need=h=>{if(y+h>H-M){doc.addPage();y=M}};
+    const line=(t,{size=10,bold=false,italic=false,align="left",gap=3,x=M,w=mw,color=0}={})=>{
+      doc.setFont("helvetica",bold&&italic?"bolditalic":bold?"bold":italic?"italic":"normal");doc.setFontSize(size);doc.setTextColor(color);
+      doc.splitTextToSize(t,w).forEach(l=>{need(size*1.25);y+=size;doc.text(l,align==="center"?W/2:x,y,{align});y+=size*.25});y+=gap};
+    const head=t=>{need(30);y+=6;line(t.toUpperCase(),{size:11,bold:true,gap:1,color:40});doc.setDrawColor(150);doc.line(M,y,W-M,y);y+=5};
+    line(BASE.name,{size:20,bold:true,align:"center",gap:1});line(BASE.title,{size:10,align:"center",color:100,gap:1});
+    line(contact()||"(add your contact details above)",{size:9,align:"center",gap:4});
+    const r=j.resume;
+    head("Summary");line(r.summary);head("Professional Skills");line(r.skills.join("  •  "));head("Work Experience");
+    r.experience.forEach(e=>{need(40);line(e.company+"  |  "+e.dates,{bold:true,gap:0});line(e.role,{italic:true,gap:1});
+      e.bullets.forEach(b=>{need(14);const y0=y;line("•",{x:M+2,w:10,gap:0});y=y0;line(b,{x:M+14,w:mw-14,gap:2})})});
+    head("Education");BASE.education.forEach(e=>{line(e.line+"  |  "+e.dates,{bold:true,gap:0});line(e.sub)});
+    head("Certifications");BASE.certifications.forEach(c=>{const y0=y;line("•",{x:M+2,w:10,gap:0});y=y0;line(c,{x:M+14,w:mw-14,gap:2})});
+    doc.save(fname);btn.textContent="Saved";
+  }catch(e){btn.textContent="PDF failed"}
+}
+function resumeText(r){
+  if(!r)return"";
+  const out=[BASE.name,contact(),"",r.summary,"","SKILLS",(r.skills||[]).join("  •  "),"","EXPERIENCE"];
+  (r.experience||[]).forEach(e=>{out.push("",e.company+" | "+e.dates,e.role);(e.bullets||[]).forEach(b=>out.push("• "+b))});
+  return out.join("\n");
+}
+function render(){
+  renderBar();
+  const list=$("#list");list.textContent="";
+  const rows=jobs.filter(j=>filter==="All"||(LS[j.id]||"New")===filter)
+    .sort((a,b)=>(b.score-a.score)||String(b.found).localeCompare(String(a.found)));
+  $("#count").textContent=rows.length+" of "+jobs.length+" jobs";
+  if(!rows.length){
+    list.append(el("li","empty",jobs.length?"No jobs with this status.":"No jobs yet. The first daily run fills this list."));return;
+  }
+  rows.forEach(j=>{
+    const st=LS[j.id]||"New",li=el("li","job st-"+st.split(" ")[0]);
+    const row=el("div","row");
+    row.append(el("div","score "+(j.score>=75?"s-hi":j.score>=70?"s-mid":"s-lo"),j.score));
+    const main=el("div");const t=el("p","title",j.title);
+    if(j.found===today)t.append(el("span","new","NEW"));
+    main.append(t,el("p","meta",[j.company,j.location,"posted "+j.posted,j.source].filter(Boolean).join(" · ")));
+    const side=el("div","side");
+    const a=el("a","apply","Open posting ↗");a.href=j.url;a.target="_blank";a.rel="noopener noreferrer";
+    const sel=el("select");sel.setAttribute("aria-label","Status for "+j.title);
+    STATUSES.forEach(s=>{const o=el("option",null,s);o.value=s;if(s===st)o.selected=true;sel.append(o)});
+    sel.disabled=!canWrite;
+    sel.onchange=()=>{LS[j.id]=sel.value;try{localStorage.setItem("st",JSON.stringify(LS))}catch{}render()};
+    side.append(a,sel);row.append(main,side);li.append(row);
+    const d=el("details");d.append(el("summary",null,"Fit, gaps"+(j.resume?" and tailored resume":"")));
+    const det=el("div","det");
+    const blk=(h,p,c)=>{const w=el("div");w.append(el("h3",null,h),el("p",c,p));return w};
+    det.append(blk("Why it matches",j.matched||j.summary||""),blk("Gaps",j.gaps||"None noted","gap"));
+    if(j.summary&&j.matched)det.prepend(blk("The role",j.summary));
+    if(j.resume){
+      const txt=resumeText(j.resume),w=el("div");const fbase=(j.company+"-"+j.title).replace(/[^A-Za-z0-9]+/g,"-").replace(/^-|-$/g,"").slice(0,60)+"-Anchal-Nayak";w.append(el("h3",null,"Tailored resume text"));
+      const pre=el("pre",null,txt);const cp=el("button","copy","Copy text");cp.type="button";
+      cp.onclick=async()=>{try{await navigator.clipboard.writeText(txt);cp.textContent="Copied"}catch{const r=document.createRange();r.selectNodeContents(pre);const s=getSelection();s.removeAllRanges();s.addRange(r);cp.textContent="Selected, press copy"}};
+      w.append(pre);det.append(w,cp);
+      const pdf=el("button","copy","Download PDF");pdf.type="button";pdf.onclick=()=>savePdf(j,pdf,fbase+".pdf");det.append(pdf);
+      if(j.latex){
+        const row2=el("div","btns");
+        const fname=(j.company+"-"+j.title).replace(/[^A-Za-z0-9]+/g,"-").replace(/^-|-$/g,"").slice(0,60)+"-Anchal-Nayak.tex";
+        const dl=el("button","copy","Download LaTeX (.tex)");dl.type="button";
+        dl.onclick=()=>{const a=document.createElement("a");a.href=URL.createObjectURL(new Blob([latexFor(j)],{type:"text/plain"}));a.download=fname;a.click();dl.textContent="Saved"};
+        const cl=el("button","copy","Copy LaTeX");cl.type="button";
+        cl.onclick=async()=>{try{await navigator.clipboard.writeText(latexFor(j));cl.textContent="Copied"}catch{cl.textContent="Copy blocked"}};
+        row2.append(dl,cl);det.append(row2,el("p","meta","Paste into Overleaf or compile with pdflatex. Contact line comes from the details saved above."));
+      }
+    }
+    d.append(det);li.append(d);list.append(li);
+  });
+}
+const F=["phone","email","li"].map(k=>$("#p-"+k));
+const fill=()=>{F[0].value=profile.phone;F[1].value=profile.email;F[2].value=profile.linkedin};
+try{profile={...profile,...JSON.parse(localStorage.getItem("profile")||"{}")};fill()}catch{}
+let profDoc=null;
+$("#prof").onsubmit=async e=>{
+  e.preventDefault();profile={phone:F[0].value.trim(),email:F[1].value.trim(),linkedin:F[2].value.trim()};
+  try{localStorage.setItem("profile",JSON.stringify(profile))}catch{}
+  $("#p-msg").textContent="Saved in this browser. Resumes now use these details.";render();
+};
+render();
+fetch("jobs.json").then(r=>r.json()).then(d=>{jobs=d;render()}).catch(()=>$("#list").replaceChildren(el("li","empty","Could not load jobs.")));
+</script></body></html>

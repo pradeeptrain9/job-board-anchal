@@ -1962,5 +1962,387 @@
   "title": "Technical Content Writer (Remote)",
   "url": "https://in.indeed.com/viewjob?jk=beaf1daf67166255",
   "id": "veriday-inc-technical-content-writer-rem"
+ },
+ {
+  "title": "Senior Content Writer (Remote)",
+  "company": "Phyllo",
+  "location": "Bengaluru / Remote (India)",
+  "url": "https://www.shine.com/jobs/senior-content-writer-remote-m-w-d/phyllo/20023259",
+  "source": "Shine",
+  "posted": "1 day ago (06 Nov 2026)",
+  "score": 86,
+  "matched": "Direct match on content writing + SEO/AEO/GEO (her core skill), B2B/SaaS writing, editing and the meaningful use of AI; 5 yrs fits 4-6; remote open to India; product/SaaS employer likely to pay 12+.",
+  "gaps": "JD wants developer-audience depth (SDKs, webhooks, scrapers/proxies) she has touched only via software documentation at Cognizant; pay not shown (flag: unstated).",
+  "summary": "Technical content writer role owning Phyllo's blog and in-depth technical content for an engineering audience across APIs, SDKs and webhooks, with SEO and AEO ownership.",
+  "found": "2026-11-07",
+  "latex": "\\documentclass[10pt]{article}\n\\usepackage[utf8]{inputenc}\n\\usepackage[margin=0.7in]{geometry}\n\\usepackage[hidelinks]{hyperref}\n\\usepackage{enumitem,titlesec}\n\\pagestyle{empty}\n\\titleformat{\\section}{\\large\\bfseries\\scshape}{}{0em}{}[\\titlerule]\n\\titlespacing*{\\section}{0pt}{8pt}{4pt}\n\\setlist[itemize]{leftmargin=1.2em,itemsep=1pt,topsep=2pt}\n\\begin{document}\n\\begin{center}{\\LARGE\\bfseries ANCHAL NAYAK}\\\\[2pt]{\\small CONTENT WRITER}\\\\[2pt]{\\small PHONE | EMAIL | Hyderabad | LINKEDIN (fill in before sending)}\\end{center}\n\\section*{Summary}\nContent writer with 5 years creating high-performing B2B and SaaS content, specializing in SEO/GEO/AEO and developer-facing material. I own blogs, landing pages, whitepapers and documentation that turn complex APIs and platforms into clear, high-ranking content for technical and marketing audiences. Skilled in Google Analytics, Figma and the meaningful use of AI to drive organic growth and engagement.\n\\section*{Professional Skills}\nDigital Content Writing \\textbullet\\ SEO/AEO/GEO \\textbullet\\ B2B, D2C, SaaS Writing \\textbullet\\ Software Documentation \\textbullet\\ Marketing/Business Writing \\textbullet\\ UX Writing, Microcopy \\textbullet\\ End-to-end Campaign Strategy \\textbullet\\ Google Analytics \\textbullet\\ Email Campaigns \\textbullet\\ Brand Voice \\& Tone Adaptation \\textbullet\\ Stakeholder Communication \\textbullet\\ Figma, Canva \\textbullet\\ Trello, Jira, Sheets \\textbullet\\ Zoho CRM \\textbullet\\ Adobe Photoshop \\textbullet\\ Social Media Marketing\n\\section*{Work Experience}\n\\noindent\\textbf{Randstad Digital, Hyderabad}\\hfill Aug 2025 -- Present\\\\\n\\textit{Content Marketing Specialist}\n\\begin{itemize}\n\\item Strategized and executed full-funnel marketing campaigns, producing high-converting landing pages, case studies, emails (1:1/marketing), social media content, and lead-generation assets like e-books and whitepapers.\n\\item Collaborated with cross-functional stakeholders across Europe, APAC, and India to adapt regional assets and streamline translation workflows using AI-driven tools.\n\\item Authored high-impact B2B content, including thought leadership blogs, marketing newsletters, sales pitch decks, and email sequences, while synthesizing data-heavy reports into actionable, audience-focused takeaways.\n\\end{itemize}\n\\noindent\\textbf{Cognizant Technology Solutions, Hyderabad}\\hfill Oct 2023 -- Aug 2025\\\\\n\\textit{Content Writer and Reviewer - SME}\n\\begin{itemize}\n\\item Developed and optimized high-performance B2B content for global tech clients, ensuring 100\\% alignment with brand guidelines while leading launch campaigns and documentation for assets like Google Maps and Pixel.\n\\item Enhanced UX/UI workflows by authoring conversational content, effectively reducing user support queries by 30\\% through intuitive navigation.\n\\item Improved data quality and operational efficiency by reviewing content for AI model training, resulting in a 50\\% boost in accuracy, and establishing internal repository documentation to standardize organizational processes.\n\\end{itemize}\n\\noindent\\textbf{Coach Foundation}\\hfill Sep 2021 -- Jul 2023\\\\\n\\textit{SEO Content Writer}\n\\begin{itemize}\n\\item Drove organic growth and visibility by developing SEO-optimized blogs, landing pages, and homepages, resulting in a 34\\% increase in search visibility and a 25\\% boost in overall website traffic.\n\\item Executed targeted D2C and coaching campaigns by crafting brand-aligned social media content and email sequences to drive engagement and audience retention.\n\\item Optimized performance and project workflows by managing Trello, overseeing freelancer collaborations, and utilizing Google Analytics to extract actionable insights for improved ROI.\n\\end{itemize}\n\\section*{Education}\n\\noindent\\textbf{PGRRCDE, Osmania University, Hyderabad}\\hfill 2023 -- 2025\\\\\nMaster of Arts -- Psychology | 8.03 CGPA\\\\[3pt]\n\\noindent\\textbf{Ramadevi Women's University, Bhubaneswar}\\hfill 2020 -- 2023\\\\\nBachelor of Arts -- Psychology | 9.27 CGPA\\\\[3pt]\n\\section*{Certifications}\n\\begin{itemize}\n\\item Business Communication Skills: Business Writing \\& Grammar --- Alex Genadinik (Udemy)\n\\item 150 Digital Marketing Hacks --- Robin and Jesper (Udemy)\n\\end{itemize}\n\\end{document}",
+  "resume": {
+   "summary": "Content writer with 5 years creating high-performing B2B and SaaS content, specializing in SEO/GEO/AEO and developer-facing material. I own blogs, landing pages, whitepapers and documentation that turn complex APIs and platforms into clear, high-ranking content for technical and marketing audiences. Skilled in Google Analytics, Figma and the meaningful use of AI to drive organic growth and engagement.",
+   "skills": [
+    "Digital Content Writing",
+    "SEO/AEO/GEO",
+    "B2B, D2C, SaaS Writing",
+    "Software Documentation",
+    "Marketing/Business Writing",
+    "UX Writing, Microcopy",
+    "End-to-end Campaign Strategy",
+    "Google Analytics",
+    "Email Campaigns",
+    "Brand Voice & Tone Adaptation",
+    "Stakeholder Communication",
+    "Figma, Canva",
+    "Trello, Jira, Sheets",
+    "Zoho CRM",
+    "Adobe Photoshop",
+    "Social Media Marketing"
+   ],
+   "experience": [
+    {
+     "company": "Randstad Digital, Hyderabad",
+     "role": "Content Marketing Specialist",
+     "dates": "Aug 2025 \u2013 Present",
+     "bullets": [
+      "Strategized and executed full-funnel marketing campaigns, producing high-converting landing pages, case studies, emails (1:1/marketing), social media content, and lead-generation assets like e-books and whitepapers.",
+      "Collaborated with cross-functional stakeholders across Europe, APAC, and India to adapt regional assets and streamline translation workflows using AI-driven tools.",
+      "Authored high-impact B2B content, including thought leadership blogs, marketing newsletters, sales pitch decks, and email sequences, while synthesizing data-heavy reports into actionable, audience-focused takeaways."
+     ]
+    },
+    {
+     "company": "Cognizant Technology Solutions, Hyderabad",
+     "role": "Content Writer and Reviewer - SME",
+     "dates": "Oct 2023 \u2013 Aug 2025",
+     "bullets": [
+      "Developed and optimized high-performance B2B content for global tech clients, ensuring 100% alignment with brand guidelines while leading launch campaigns and documentation for assets like Google Maps and Pixel.",
+      "Enhanced UX/UI workflows by authoring conversational content, effectively reducing user support queries by 30% through intuitive navigation.",
+      "Improved data quality and operational efficiency by reviewing content for AI model training, resulting in a 50% boost in accuracy, and establishing internal repository documentation to standardize organizational processes."
+     ]
+    },
+    {
+     "company": "Coach Foundation",
+     "role": "SEO Content Writer",
+     "dates": "Sep 2021 \u2013 Jul 2023",
+     "bullets": [
+      "Drove organic growth and visibility by developing SEO-optimized blogs, landing pages, and homepages, resulting in a 34% increase in search visibility and a 25% boost in overall website traffic.",
+      "Executed targeted D2C and coaching campaigns by crafting brand-aligned social media content and email sequences to drive engagement and audience retention.",
+      "Optimized performance and project workflows by managing Trello, overseeing freelancer collaborations, and utilizing Google Analytics to extract actionable insights for improved ROI."
+     ]
+    }
+   ]
+  },
+  "id": "phyllo-senior-content-writer-remote"
+ },
+ {
+  "title": "Technical Writer (Canopy AI/Automation Platform)",
+  "company": "Innominds Software",
+  "location": "Bengaluru (Hybrid)",
+  "url": "https://www.naukri.com/job-listings-technical-writer-immediate-hiring-with-innominds-software-bangalor-innominds-software-bengaluru-5-to-10-years-061026016138",
+  "source": "Naukri",
+  "posted": "4 days ago (03 Nov 2026)",
+  "score": 78,
+  "matched": "Software Documentation skill + Cognizant documentation experience; B2B/SaaS writing; stakeholder collaboration; 5 yrs within 5-10 band; Bengaluru location.",
+  "gaps": "Role leans to deep product/dev docs for an AI platform vs her marketing-heavy profile; pay not disclosed (flag: unstated); 5-10 band means she is at the low end.",
+  "summary": "Own and drive technical documentation for Canopy, a cloud-native AI and automation platform; 5-10 yrs, Bengaluru hybrid.",
+  "found": "2026-11-07",
+  "latex": "\\documentclass[10pt]{article}\n\\usepackage[utf8]{inputenc}\n\\usepackage[margin=0.7in]{geometry}\n\\usepackage[hidelinks]{hyperref}\n\\usepackage{enumitem,titlesec}\n\\pagestyle{empty}\n\\titleformat{\\section}{\\large\\bfseries\\scshape}{}{0em}{}[\\titlerule]\n\\titlespacing*{\\section}{0pt}{8pt}{4pt}\n\\setlist[itemize]{leftmargin=1.2em,itemsep=1pt,topsep=2pt}\n\\begin{document}\n\\begin{center}{\\LARGE\\bfseries ANCHAL NAYAK}\\\\[2pt]{\\small CONTENT WRITER}\\\\[2pt]{\\small PHONE | EMAIL | Hyderabad | LINKEDIN (fill in before sending)}\\end{center}\n\\section*{Summary}\nContent and documentation writer with 5 years across B2B, SaaS and software documentation. I produce clear product and platform docs, knowledge-base articles and UX content, working with product, engineering and cross-functional stakeholders to turn complex features into usable, accurate material. Skilled in Figma, Google Analytics and the meaningful use of AI.\n\\section*{Professional Skills}\nSoftware Documentation \\textbullet\\ B2B, D2C, SaaS Writing \\textbullet\\ Digital Content Writing \\textbullet\\ UX Writing, Microcopy \\textbullet\\ Stakeholder Communication \\textbullet\\ Brand Voice \\& Tone Adaptation \\textbullet\\ Marketing/Business Writing \\textbullet\\ SEO/AEO/GEO \\textbullet\\ Google Analytics \\textbullet\\ Trello, Jira, Sheets \\textbullet\\ Figma, Canva \\textbullet\\ Email Campaigns \\textbullet\\ End-to-end Campaign Strategy \\textbullet\\ Zoho CRM \\textbullet\\ Adobe Photoshop \\textbullet\\ Social Media Marketing\n\\section*{Work Experience}\n\\noindent\\textbf{Randstad Digital, Hyderabad}\\hfill Aug 2025 -- Present\\\\\n\\textit{Content Marketing Specialist}\n\\begin{itemize}\n\\item Strategized and executed full-funnel marketing campaigns, producing high-converting landing pages, case studies, emails (1:1/marketing), social media content, and lead-generation assets like e-books and whitepapers.\n\\item Collaborated with cross-functional stakeholders across Europe, APAC, and India to adapt regional assets and streamline translation workflows using AI-driven tools.\n\\item Authored high-impact B2B content, including thought leadership blogs, marketing newsletters, sales pitch decks, and email sequences, while synthesizing data-heavy reports into actionable, audience-focused takeaways.\n\\end{itemize}\n\\noindent\\textbf{Cognizant Technology Solutions, Hyderabad}\\hfill Oct 2023 -- Aug 2025\\\\\n\\textit{Content Writer and Reviewer - SME}\n\\begin{itemize}\n\\item Developed and optimized high-performance B2B content for global tech clients, ensuring 100\\% alignment with brand guidelines while leading launch campaigns and documentation for assets like Google Maps and Pixel.\n\\item Enhanced UX/UI workflows by authoring conversational content, effectively reducing user support queries by 30\\% through intuitive navigation.\n\\item Improved data quality and operational efficiency by reviewing content for AI model training, resulting in a 50\\% boost in accuracy, and establishing internal repository documentation to standardize organizational processes.\n\\end{itemize}\n\\noindent\\textbf{Coach Foundation}\\hfill Sep 2021 -- Jul 2023\\\\\n\\textit{SEO Content Writer}\n\\begin{itemize}\n\\item Drove organic growth and visibility by developing SEO-optimized blogs, landing pages, and homepages, resulting in a 34\\% increase in search visibility and a 25\\% boost in overall website traffic.\n\\item Executed targeted D2C and coaching campaigns by crafting brand-aligned social media content and email sequences to drive engagement and audience retention.\n\\item Optimized performance and project workflows by managing Trello, overseeing freelancer collaborations, and utilizing Google Analytics to extract actionable insights for improved ROI.\n\\end{itemize}\n\\section*{Education}\n\\noindent\\textbf{PGRRCDE, Osmania University, Hyderabad}\\hfill 2023 -- 2025\\\\\nMaster of Arts -- Psychology | 8.03 CGPA\\\\[3pt]\n\\noindent\\textbf{Ramadevi Women's University, Bhubaneswar}\\hfill 2020 -- 2023\\\\\nBachelor of Arts -- Psychology | 9.27 CGPA\\\\[3pt]\n\\section*{Certifications}\n\\begin{itemize}\n\\item Business Communication Skills: Business Writing \\& Grammar --- Alex Genadinik (Udemy)\n\\item 150 Digital Marketing Hacks --- Robin and Jesper (Udemy)\n\\end{itemize}\n\\end{document}",
+  "resume": {
+   "summary": "Content and documentation writer with 5 years across B2B, SaaS and software documentation. I produce clear product and platform docs, knowledge-base articles and UX content, working with product, engineering and cross-functional stakeholders to turn complex features into usable, accurate material. Skilled in Figma, Google Analytics and the meaningful use of AI.",
+   "skills": [
+    "Software Documentation",
+    "B2B, D2C, SaaS Writing",
+    "Digital Content Writing",
+    "UX Writing, Microcopy",
+    "Stakeholder Communication",
+    "Brand Voice & Tone Adaptation",
+    "Marketing/Business Writing",
+    "SEO/AEO/GEO",
+    "Google Analytics",
+    "Trello, Jira, Sheets",
+    "Figma, Canva",
+    "Email Campaigns",
+    "End-to-end Campaign Strategy",
+    "Zoho CRM",
+    "Adobe Photoshop",
+    "Social Media Marketing"
+   ],
+   "experience": [
+    {
+     "company": "Randstad Digital, Hyderabad",
+     "role": "Content Marketing Specialist",
+     "dates": "Aug 2025 \u2013 Present",
+     "bullets": [
+      "Strategized and executed full-funnel marketing campaigns, producing high-converting landing pages, case studies, emails (1:1/marketing), social media content, and lead-generation assets like e-books and whitepapers.",
+      "Collaborated with cross-functional stakeholders across Europe, APAC, and India to adapt regional assets and streamline translation workflows using AI-driven tools.",
+      "Authored high-impact B2B content, including thought leadership blogs, marketing newsletters, sales pitch decks, and email sequences, while synthesizing data-heavy reports into actionable, audience-focused takeaways."
+     ]
+    },
+    {
+     "company": "Cognizant Technology Solutions, Hyderabad",
+     "role": "Content Writer and Reviewer - SME",
+     "dates": "Oct 2023 \u2013 Aug 2025",
+     "bullets": [
+      "Developed and optimized high-performance B2B content for global tech clients, ensuring 100% alignment with brand guidelines while leading launch campaigns and documentation for assets like Google Maps and Pixel.",
+      "Enhanced UX/UI workflows by authoring conversational content, effectively reducing user support queries by 30% through intuitive navigation.",
+      "Improved data quality and operational efficiency by reviewing content for AI model training, resulting in a 50% boost in accuracy, and establishing internal repository documentation to standardize organizational processes."
+     ]
+    },
+    {
+     "company": "Coach Foundation",
+     "role": "SEO Content Writer",
+     "dates": "Sep 2021 \u2013 Jul 2023",
+     "bullets": [
+      "Drove organic growth and visibility by developing SEO-optimized blogs, landing pages, and homepages, resulting in a 34% increase in search visibility and a 25% boost in overall website traffic.",
+      "Executed targeted D2C and coaching campaigns by crafting brand-aligned social media content and email sequences to drive engagement and audience retention.",
+      "Optimized performance and project workflows by managing Trello, overseeing freelancer collaborations, and utilizing Google Analytics to extract actionable insights for improved ROI."
+     ]
+    }
+   ]
+  },
+  "id": "innominds-software-technical-writer-cano"
+ },
+ {
+  "title": "Technical Writer USI-CTS (Hyderabad)",
+  "company": "Clock Edge Technologies",
+  "location": "Hyderabad",
+  "url": "https://www.shine.com/jobs/technical-writer-usi-cts-hyderabad/clock-edge-technologies-pvt-lt/20027015",
+  "source": "Shine",
+  "posted": "1 day ago (06 Nov 2026)",
+  "score": 77,
+  "matched": "Software Documentation + content standardization (she built internal repository documentation at Cognizant); SOP/style-guide and SME collaboration fit; Hyderabad home city; 5 yrs within 3-8.",
+  "gaps": "Pure documentation role, lighter on her marketing/SEO strengths; pay not disclosed (flag: unstated); likely contract/USI payroll.",
+  "summary": "Technical writing / documentation role (Deloitte USI): content auditing, content migration, knowledge-base and end-user docs, SOPs, style guides, SME collaboration; 3-8 yrs, Hyderabad.",
+  "found": "2026-11-07",
+  "latex": "\\documentclass[10pt]{article}\n\\usepackage[utf8]{inputenc}\n\\usepackage[margin=0.7in]{geometry}\n\\usepackage[hidelinks]{hyperref}\n\\usepackage{enumitem,titlesec}\n\\pagestyle{empty}\n\\titleformat{\\section}{\\large\\bfseries\\scshape}{}{0em}{}[\\titlerule]\n\\titlespacing*{\\section}{0pt}{8pt}{4pt}\n\\setlist[itemize]{leftmargin=1.2em,itemsep=1pt,topsep=2pt}\n\\begin{document}\n\\begin{center}{\\LARGE\\bfseries ANCHAL NAYAK}\\\\[2pt]{\\small CONTENT WRITER}\\\\[2pt]{\\small PHONE | EMAIL | Hyderabad | LINKEDIN (fill in before sending)}\\end{center}\n\\section*{Summary}\nDocumentation and content writer with 5 years spanning software documentation, SOPs and style guides. I audit, migrate and standardize knowledge-base and end-user content, collaborating with SMEs to keep material accurate and on-brand. Skilled in Google Analytics, Figma and the meaningful use of AI for content quality and efficiency.\n\\section*{Professional Skills}\nSoftware Documentation \\textbullet\\ Digital Content Writing \\textbullet\\ Brand Voice \\& Tone Adaptation \\textbullet\\ Stakeholder Communication \\textbullet\\ B2B, D2C, SaaS Writing \\textbullet\\ UX Writing, Microcopy \\textbullet\\ Marketing/Business Writing \\textbullet\\ SEO/AEO/GEO \\textbullet\\ Trello, Jira, Sheets \\textbullet\\ Google Analytics \\textbullet\\ Figma, Canva \\textbullet\\ Email Campaigns \\textbullet\\ End-to-end Campaign Strategy \\textbullet\\ Zoho CRM \\textbullet\\ Adobe Photoshop \\textbullet\\ Social Media Marketing\n\\section*{Work Experience}\n\\noindent\\textbf{Randstad Digital, Hyderabad}\\hfill Aug 2025 -- Present\\\\\n\\textit{Content Marketing Specialist}\n\\begin{itemize}\n\\item Strategized and executed full-funnel marketing campaigns, producing high-converting landing pages, case studies, emails (1:1/marketing), social media content, and lead-generation assets like e-books and whitepapers.\n\\item Collaborated with cross-functional stakeholders across Europe, APAC, and India to adapt regional assets and streamline translation workflows using AI-driven tools.\n\\item Authored high-impact B2B content, including thought leadership blogs, marketing newsletters, sales pitch decks, and email sequences, while synthesizing data-heavy reports into actionable, audience-focused takeaways.\n\\end{itemize}\n\\noindent\\textbf{Cognizant Technology Solutions, Hyderabad}\\hfill Oct 2023 -- Aug 2025\\\\\n\\textit{Content Writer and Reviewer - SME}\n\\begin{itemize}\n\\item Developed and optimized high-performance B2B content for global tech clients, ensuring 100\\% alignment with brand guidelines while leading launch campaigns and documentation for assets like Google Maps and Pixel.\n\\item Enhanced UX/UI workflows by authoring conversational content, effectively reducing user support queries by 30\\% through intuitive navigation.\n\\item Improved data quality and operational efficiency by reviewing content for AI model training, resulting in a 50\\% boost in accuracy, and establishing internal repository documentation to standardize organizational processes.\n\\end{itemize}\n\\noindent\\textbf{Coach Foundation}\\hfill Sep 2021 -- Jul 2023\\\\\n\\textit{SEO Content Writer}\n\\begin{itemize}\n\\item Drove organic growth and visibility by developing SEO-optimized blogs, landing pages, and homepages, resulting in a 34\\% increase in search visibility and a 25\\% boost in overall website traffic.\n\\item Executed targeted D2C and coaching campaigns by crafting brand-aligned social media content and email sequences to drive engagement and audience retention.\n\\item Optimized performance and project workflows by managing Trello, overseeing freelancer collaborations, and utilizing Google Analytics to extract actionable insights for improved ROI.\n\\end{itemize}\n\\section*{Education}\n\\noindent\\textbf{PGRRCDE, Osmania University, Hyderabad}\\hfill 2023 -- 2025\\\\\nMaster of Arts -- Psychology | 8.03 CGPA\\\\[3pt]\n\\noindent\\textbf{Ramadevi Women's University, Bhubaneswar}\\hfill 2020 -- 2023\\\\\nBachelor of Arts -- Psychology | 9.27 CGPA\\\\[3pt]\n\\section*{Certifications}\n\\begin{itemize}\n\\item Business Communication Skills: Business Writing \\& Grammar --- Alex Genadinik (Udemy)\n\\item 150 Digital Marketing Hacks --- Robin and Jesper (Udemy)\n\\end{itemize}\n\\end{document}",
+  "resume": {
+   "summary": "Documentation and content writer with 5 years spanning software documentation, SOPs and style guides. I audit, migrate and standardize knowledge-base and end-user content, collaborating with SMEs to keep material accurate and on-brand. Skilled in Google Analytics, Figma and the meaningful use of AI for content quality and efficiency.",
+   "skills": [
+    "Software Documentation",
+    "Digital Content Writing",
+    "Brand Voice & Tone Adaptation",
+    "Stakeholder Communication",
+    "B2B, D2C, SaaS Writing",
+    "UX Writing, Microcopy",
+    "Marketing/Business Writing",
+    "SEO/AEO/GEO",
+    "Trello, Jira, Sheets",
+    "Google Analytics",
+    "Figma, Canva",
+    "Email Campaigns",
+    "End-to-end Campaign Strategy",
+    "Zoho CRM",
+    "Adobe Photoshop",
+    "Social Media Marketing"
+   ],
+   "experience": [
+    {
+     "company": "Randstad Digital, Hyderabad",
+     "role": "Content Marketing Specialist",
+     "dates": "Aug 2025 \u2013 Present",
+     "bullets": [
+      "Strategized and executed full-funnel marketing campaigns, producing high-converting landing pages, case studies, emails (1:1/marketing), social media content, and lead-generation assets like e-books and whitepapers.",
+      "Collaborated with cross-functional stakeholders across Europe, APAC, and India to adapt regional assets and streamline translation workflows using AI-driven tools.",
+      "Authored high-impact B2B content, including thought leadership blogs, marketing newsletters, sales pitch decks, and email sequences, while synthesizing data-heavy reports into actionable, audience-focused takeaways."
+     ]
+    },
+    {
+     "company": "Cognizant Technology Solutions, Hyderabad",
+     "role": "Content Writer and Reviewer - SME",
+     "dates": "Oct 2023 \u2013 Aug 2025",
+     "bullets": [
+      "Developed and optimized high-performance B2B content for global tech clients, ensuring 100% alignment with brand guidelines while leading launch campaigns and documentation for assets like Google Maps and Pixel.",
+      "Enhanced UX/UI workflows by authoring conversational content, effectively reducing user support queries by 30% through intuitive navigation.",
+      "Improved data quality and operational efficiency by reviewing content for AI model training, resulting in a 50% boost in accuracy, and establishing internal repository documentation to standardize organizational processes."
+     ]
+    },
+    {
+     "company": "Coach Foundation",
+     "role": "SEO Content Writer",
+     "dates": "Sep 2021 \u2013 Jul 2023",
+     "bullets": [
+      "Drove organic growth and visibility by developing SEO-optimized blogs, landing pages, and homepages, resulting in a 34% increase in search visibility and a 25% boost in overall website traffic.",
+      "Executed targeted D2C and coaching campaigns by crafting brand-aligned social media content and email sequences to drive engagement and audience retention.",
+      "Optimized performance and project workflows by managing Trello, overseeing freelancer collaborations, and utilizing Google Analytics to extract actionable insights for improved ROI."
+     ]
+    }
+   ]
+  },
+  "id": "clock-edge-technologies-technical-writer"
+ },
+ {
+  "title": "Product Marketing Manager (Remote)",
+  "company": "Adapty",
+  "location": "Remote (India)",
+  "url": "https://www.naukri.com/job-listings-product-marketing-manager-adapty-solutions-pvt-ltd-remote-4-to-9-years-051126503322",
+  "source": "Naukri",
+  "posted": "1 day ago (06 Nov 2026)",
+  "score": 74,
+  "matched": "End-to-end campaign strategy + B2B/SaaS writing + full-funnel marketing (landing pages, emails, case studies) from Randstad; remote open to India; product/SaaS employer.",
+  "gaps": "PMM title leans strategy/ownership over pure writing; pay not disclosed (flag: unstated); no direct product-marketing title on resume.",
+  "summary": "Lead GTM for Adapty's AI Flow Paywall Builder (SaaS for app teams): own positioning, messaging and go-to-market; remote, 4-9 yrs.",
+  "found": "2026-11-07",
+  "latex": "\\documentclass[10pt]{article}\n\\usepackage[utf8]{inputenc}\n\\usepackage[margin=0.7in]{geometry}\n\\usepackage[hidelinks]{hyperref}\n\\usepackage{enumitem,titlesec}\n\\pagestyle{empty}\n\\titleformat{\\section}{\\large\\bfseries\\scshape}{}{0em}{}[\\titlerule]\n\\titlespacing*{\\section}{0pt}{8pt}{4pt}\n\\setlist[itemize]{leftmargin=1.2em,itemsep=1pt,topsep=2pt}\n\\begin{document}\n\\begin{center}{\\LARGE\\bfseries ANCHAL NAYAK}\\\\[2pt]{\\small CONTENT WRITER}\\\\[2pt]{\\small PHONE | EMAIL | Hyderabad | LINKEDIN (fill in before sending)}\\end{center}\n\\section*{Summary}\nContent marketing specialist with 5 years driving full-funnel B2B and SaaS campaigns. I own positioning and messaging across landing pages, case studies, emails, whitepapers and launch assets, partnering with cross-functional teams to ship go-to-market content that converts. Skilled in Google Analytics, Figma and the meaningful use of AI to drive engagement.\n\\section*{Professional Skills}\nEnd-to-end Campaign Strategy \\textbullet\\ Marketing/Business Writing \\textbullet\\ B2B, D2C, SaaS Writing \\textbullet\\ Digital Content Writing \\textbullet\\ SEO/AEO/GEO \\textbullet\\ Email Campaigns \\textbullet\\ Google Analytics \\textbullet\\ Stakeholder Communication \\textbullet\\ Brand Voice \\& Tone Adaptation \\textbullet\\ UX Writing, Microcopy \\textbullet\\ Social Media Marketing \\textbullet\\ Figma, Canva \\textbullet\\ Trello, Jira, Sheets \\textbullet\\ Zoho CRM \\textbullet\\ Software Documentation \\textbullet\\ Adobe Photoshop\n\\section*{Work Experience}\n\\noindent\\textbf{Randstad Digital, Hyderabad}\\hfill Aug 2025 -- Present\\\\\n\\textit{Content Marketing Specialist}\n\\begin{itemize}\n\\item Strategized and executed full-funnel marketing campaigns, producing high-converting landing pages, case studies, emails (1:1/marketing), social media content, and lead-generation assets like e-books and whitepapers.\n\\item Collaborated with cross-functional stakeholders across Europe, APAC, and India to adapt regional assets and streamline translation workflows using AI-driven tools.\n\\item Authored high-impact B2B content, including thought leadership blogs, marketing newsletters, sales pitch decks, and email sequences, while synthesizing data-heavy reports into actionable, audience-focused takeaways.\n\\end{itemize}\n\\noindent\\textbf{Cognizant Technology Solutions, Hyderabad}\\hfill Oct 2023 -- Aug 2025\\\\\n\\textit{Content Writer and Reviewer - SME}\n\\begin{itemize}\n\\item Developed and optimized high-performance B2B content for global tech clients, ensuring 100\\% alignment with brand guidelines while leading launch campaigns and documentation for assets like Google Maps and Pixel.\n\\item Enhanced UX/UI workflows by authoring conversational content, effectively reducing user support queries by 30\\% through intuitive navigation.\n\\item Improved data quality and operational efficiency by reviewing content for AI model training, resulting in a 50\\% boost in accuracy, and establishing internal repository documentation to standardize organizational processes.\n\\end{itemize}\n\\noindent\\textbf{Coach Foundation}\\hfill Sep 2021 -- Jul 2023\\\\\n\\textit{SEO Content Writer}\n\\begin{itemize}\n\\item Drove organic growth and visibility by developing SEO-optimized blogs, landing pages, and homepages, resulting in a 34\\% increase in search visibility and a 25\\% boost in overall website traffic.\n\\item Executed targeted D2C and coaching campaigns by crafting brand-aligned social media content and email sequences to drive engagement and audience retention.\n\\item Optimized performance and project workflows by managing Trello, overseeing freelancer collaborations, and utilizing Google Analytics to extract actionable insights for improved ROI.\n\\end{itemize}\n\\section*{Education}\n\\noindent\\textbf{PGRRCDE, Osmania University, Hyderabad}\\hfill 2023 -- 2025\\\\\nMaster of Arts -- Psychology | 8.03 CGPA\\\\[3pt]\n\\noindent\\textbf{Ramadevi Women's University, Bhubaneswar}\\hfill 2020 -- 2023\\\\\nBachelor of Arts -- Psychology | 9.27 CGPA\\\\[3pt]\n\\section*{Certifications}\n\\begin{itemize}\n\\item Business Communication Skills: Business Writing \\& Grammar --- Alex Genadinik (Udemy)\n\\item 150 Digital Marketing Hacks --- Robin and Jesper (Udemy)\n\\end{itemize}\n\\end{document}",
+  "resume": {
+   "summary": "Content marketing specialist with 5 years driving full-funnel B2B and SaaS campaigns. I own positioning and messaging across landing pages, case studies, emails, whitepapers and launch assets, partnering with cross-functional teams to ship go-to-market content that converts. Skilled in Google Analytics, Figma and the meaningful use of AI to drive engagement.",
+   "skills": [
+    "End-to-end Campaign Strategy",
+    "Marketing/Business Writing",
+    "B2B, D2C, SaaS Writing",
+    "Digital Content Writing",
+    "SEO/AEO/GEO",
+    "Email Campaigns",
+    "Google Analytics",
+    "Stakeholder Communication",
+    "Brand Voice & Tone Adaptation",
+    "UX Writing, Microcopy",
+    "Social Media Marketing",
+    "Figma, Canva",
+    "Trello, Jira, Sheets",
+    "Zoho CRM",
+    "Software Documentation",
+    "Adobe Photoshop"
+   ],
+   "experience": [
+    {
+     "company": "Randstad Digital, Hyderabad",
+     "role": "Content Marketing Specialist",
+     "dates": "Aug 2025 \u2013 Present",
+     "bullets": [
+      "Strategized and executed full-funnel marketing campaigns, producing high-converting landing pages, case studies, emails (1:1/marketing), social media content, and lead-generation assets like e-books and whitepapers.",
+      "Collaborated with cross-functional stakeholders across Europe, APAC, and India to adapt regional assets and streamline translation workflows using AI-driven tools.",
+      "Authored high-impact B2B content, including thought leadership blogs, marketing newsletters, sales pitch decks, and email sequences, while synthesizing data-heavy reports into actionable, audience-focused takeaways."
+     ]
+    },
+    {
+     "company": "Cognizant Technology Solutions, Hyderabad",
+     "role": "Content Writer and Reviewer - SME",
+     "dates": "Oct 2023 \u2013 Aug 2025",
+     "bullets": [
+      "Developed and optimized high-performance B2B content for global tech clients, ensuring 100% alignment with brand guidelines while leading launch campaigns and documentation for assets like Google Maps and Pixel.",
+      "Enhanced UX/UI workflows by authoring conversational content, effectively reducing user support queries by 30% through intuitive navigation.",
+      "Improved data quality and operational efficiency by reviewing content for AI model training, resulting in a 50% boost in accuracy, and establishing internal repository documentation to standardize organizational processes."
+     ]
+    },
+    {
+     "company": "Coach Foundation",
+     "role": "SEO Content Writer",
+     "dates": "Sep 2021 \u2013 Jul 2023",
+     "bullets": [
+      "Drove organic growth and visibility by developing SEO-optimized blogs, landing pages, and homepages, resulting in a 34% increase in search visibility and a 25% boost in overall website traffic.",
+      "Executed targeted D2C and coaching campaigns by crafting brand-aligned social media content and email sequences to drive engagement and audience retention.",
+      "Optimized performance and project workflows by managing Trello, overseeing freelancer collaborations, and utilizing Google Analytics to extract actionable insights for improved ROI."
+     ]
+    }
+   ]
+  },
+  "id": "adapty-product-marketing-manager-remote"
+ },
+ {
+  "title": "Technical Writer",
+  "company": "PRI Global",
+  "location": "Bengaluru (Hybrid)",
+  "url": "https://www.naukri.com/job-listings-technical-writer-pri-india-it-services-bengaluru-5-to-10-years-021126003809",
+  "source": "Naukri",
+  "posted": "4 days ago (03 Nov 2026)",
+  "score": 72,
+  "matched": "Software Documentation + B2B/SaaS writing + JIRA/stakeholder collaboration; 5 yrs; Bengaluru; pay band tops at 14 LPA (above 12 target).",
+  "gaps": "JD requires MadCap Flare, API docs and Git which she has not used; pay band starts at 6.5 LPA (below current 10.5), negotiate to upper band.",
+  "summary": "Technical Writer for data and cloud-based products: API documentation, MadCap Flare, JIRA, Confluence, Git; collaborate with PMs, architects and DevOps; 5-10 yrs, Bengaluru hybrid. Pay 6.5-14 LPA.",
+  "found": "2026-11-07",
+  "latex": "\\documentclass[10pt]{article}\n\\usepackage[utf8]{inputenc}\n\\usepackage[margin=0.7in]{geometry}\n\\usepackage[hidelinks]{hyperref}\n\\usepackage{enumitem,titlesec}\n\\pagestyle{empty}\n\\titleformat{\\section}{\\large\\bfseries\\scshape}{}{0em}{}[\\titlerule]\n\\titlespacing*{\\section}{0pt}{8pt}{4pt}\n\\setlist[itemize]{leftmargin=1.2em,itemsep=1pt,topsep=2pt}\n\\begin{document}\n\\begin{center}{\\LARGE\\bfseries ANCHAL NAYAK}\\\\[2pt]{\\small CONTENT WRITER}\\\\[2pt]{\\small PHONE | EMAIL | Hyderabad | LINKEDIN (fill in before sending)}\\end{center}\n\\section*{Summary}\nTechnical and content writer with 5 years across software documentation, SaaS and B2B content. I create and maintain product documentation and knowledge-base content, working with product managers, architects and engineering teams via JIRA and Confluence to keep docs accurate. Skilled in Figma, Google Analytics and the meaningful use of AI.\n\\section*{Professional Skills}\nSoftware Documentation \\textbullet\\ B2B, D2C, SaaS Writing \\textbullet\\ Stakeholder Communication \\textbullet\\ Digital Content Writing \\textbullet\\ Trello, Jira, Sheets \\textbullet\\ UX Writing, Microcopy \\textbullet\\ Brand Voice \\& Tone Adaptation \\textbullet\\ SEO/AEO/GEO \\textbullet\\ Marketing/Business Writing \\textbullet\\ Google Analytics \\textbullet\\ Figma, Canva \\textbullet\\ Email Campaigns \\textbullet\\ End-to-end Campaign Strategy \\textbullet\\ Zoho CRM \\textbullet\\ Adobe Photoshop \\textbullet\\ Social Media Marketing\n\\section*{Work Experience}\n\\noindent\\textbf{Randstad Digital, Hyderabad}\\hfill Aug 2025 -- Present\\\\\n\\textit{Content Marketing Specialist}\n\\begin{itemize}\n\\item Strategized and executed full-funnel marketing campaigns, producing high-converting landing pages, case studies, emails (1:1/marketing), social media content, and lead-generation assets like e-books and whitepapers.\n\\item Collaborated with cross-functional stakeholders across Europe, APAC, and India to adapt regional assets and streamline translation workflows using AI-driven tools.\n\\item Authored high-impact B2B content, including thought leadership blogs, marketing newsletters, sales pitch decks, and email sequences, while synthesizing data-heavy reports into actionable, audience-focused takeaways.\n\\end{itemize}\n\\noindent\\textbf{Cognizant Technology Solutions, Hyderabad}\\hfill Oct 2023 -- Aug 2025\\\\\n\\textit{Content Writer and Reviewer - SME}\n\\begin{itemize}\n\\item Developed and optimized high-performance B2B content for global tech clients, ensuring 100\\% alignment with brand guidelines while leading launch campaigns and documentation for assets like Google Maps and Pixel.\n\\item Enhanced UX/UI workflows by authoring conversational content, effectively reducing user support queries by 30\\% through intuitive navigation.\n\\item Improved data quality and operational efficiency by reviewing content for AI model training, resulting in a 50\\% boost in accuracy, and establishing internal repository documentation to standardize organizational processes.\n\\end{itemize}\n\\noindent\\textbf{Coach Foundation}\\hfill Sep 2021 -- Jul 2023\\\\\n\\textit{SEO Content Writer}\n\\begin{itemize}\n\\item Drove organic growth and visibility by developing SEO-optimized blogs, landing pages, and homepages, resulting in a 34\\% increase in search visibility and a 25\\% boost in overall website traffic.\n\\item Executed targeted D2C and coaching campaigns by crafting brand-aligned social media content and email sequences to drive engagement and audience retention.\n\\item Optimized performance and project workflows by managing Trello, overseeing freelancer collaborations, and utilizing Google Analytics to extract actionable insights for improved ROI.\n\\end{itemize}\n\\section*{Education}\n\\noindent\\textbf{PGRRCDE, Osmania University, Hyderabad}\\hfill 2023 -- 2025\\\\\nMaster of Arts -- Psychology | 8.03 CGPA\\\\[3pt]\n\\noindent\\textbf{Ramadevi Women's University, Bhubaneswar}\\hfill 2020 -- 2023\\\\\nBachelor of Arts -- Psychology | 9.27 CGPA\\\\[3pt]\n\\section*{Certifications}\n\\begin{itemize}\n\\item Business Communication Skills: Business Writing \\& Grammar --- Alex Genadinik (Udemy)\n\\item 150 Digital Marketing Hacks --- Robin and Jesper (Udemy)\n\\end{itemize}\n\\end{document}",
+  "resume": {
+   "summary": "Technical and content writer with 5 years across software documentation, SaaS and B2B content. I create and maintain product documentation and knowledge-base content, working with product managers, architects and engineering teams via JIRA and Confluence to keep docs accurate. Skilled in Figma, Google Analytics and the meaningful use of AI.",
+   "skills": [
+    "Software Documentation",
+    "B2B, D2C, SaaS Writing",
+    "Stakeholder Communication",
+    "Digital Content Writing",
+    "Trello, Jira, Sheets",
+    "UX Writing, Microcopy",
+    "Brand Voice & Tone Adaptation",
+    "SEO/AEO/GEO",
+    "Marketing/Business Writing",
+    "Google Analytics",
+    "Figma, Canva",
+    "Email Campaigns",
+    "End-to-end Campaign Strategy",
+    "Zoho CRM",
+    "Adobe Photoshop",
+    "Social Media Marketing"
+   ],
+   "experience": [
+    {
+     "company": "Randstad Digital, Hyderabad",
+     "role": "Content Marketing Specialist",
+     "dates": "Aug 2025 \u2013 Present",
+     "bullets": [
+      "Strategized and executed full-funnel marketing campaigns, producing high-converting landing pages, case studies, emails (1:1/marketing), social media content, and lead-generation assets like e-books and whitepapers.",
+      "Collaborated with cross-functional stakeholders across Europe, APAC, and India to adapt regional assets and streamline translation workflows using AI-driven tools.",
+      "Authored high-impact B2B content, including thought leadership blogs, marketing newsletters, sales pitch decks, and email sequences, while synthesizing data-heavy reports into actionable, audience-focused takeaways."
+     ]
+    },
+    {
+     "company": "Cognizant Technology Solutions, Hyderabad",
+     "role": "Content Writer and Reviewer - SME",
+     "dates": "Oct 2023 \u2013 Aug 2025",
+     "bullets": [
+      "Developed and optimized high-performance B2B content for global tech clients, ensuring 100% alignment with brand guidelines while leading launch campaigns and documentation for assets like Google Maps and Pixel.",
+      "Enhanced UX/UI workflows by authoring conversational content, effectively reducing user support queries by 30% through intuitive navigation.",
+      "Improved data quality and operational efficiency by reviewing content for AI model training, resulting in a 50% boost in accuracy, and establishing internal repository documentation to standardize organizational processes."
+     ]
+    },
+    {
+     "company": "Coach Foundation",
+     "role": "SEO Content Writer",
+     "dates": "Sep 2021 \u2013 Jul 2023",
+     "bullets": [
+      "Drove organic growth and visibility by developing SEO-optimized blogs, landing pages, and homepages, resulting in a 34% increase in search visibility and a 25% boost in overall website traffic.",
+      "Executed targeted D2C and coaching campaigns by crafting brand-aligned social media content and email sequences to drive engagement and audience retention.",
+      "Optimized performance and project workflows by managing Trello, overseeing freelancer collaborations, and utilizing Google Analytics to extract actionable insights for improved ROI."
+     ]
+    }
+   ]
+  },
+  "id": "pri-global-technical-writer"
+ },
+ {
+  "title": "Network Documentation Specialist",
+  "company": "Virtusa",
+  "location": "Hyderabad / Bengaluru (Hybrid)",
+  "url": "https://www.naukri.com/job-listings-network-documentation-specialist-virtusa-hyderabad-chennai-bengaluru-5-to-10-years-041126027868",
+  "source": "Naukri",
+  "posted": "2 days ago (05 Nov 2026)",
+  "score": 66,
+  "matched": "Technical writing + Confluence + SOP/documentation; Hyderabad/Bengaluru; 5 yrs.",
+  "gaps": "Heavily network/infrastructure-focused (HLD/LLD, blueprints) \u2014 outside her SaaS/marketing content background; pay not disclosed (flag: unstated); domain is financial-services network engineering.",
+  "summary": "Technical Writer for network documentation: Confluence administration/governance, HLD/LLD, SOP and Blueprint development; Financial Services; 5-10 yrs, Hyderabad/Bengaluru hybrid.",
+  "found": "2026-11-07",
+  "id": "virtusa-network-documentation-specialist"
+ },
+ {
+  "title": "Analyst - Digital Content Architect",
+  "company": "Artex Risk Solutions (Gallagher GCOE)",
+  "location": "Bengaluru",
+  "url": "https://www.naukri.com/job-listings-analyst-digital-content-architect-artex-risk-solutions-bengaluru-2-to-6-years-061126502140",
+  "source": "Naukri",
+  "posted": "1 day ago (06 Nov 2026)",
+  "score": 64,
+  "matched": "Digital content + web/CMS publishing + SEO adjacency; Bengaluru; 5 yrs within 2-6.",
+  "gaps": "Junior/analyst-level content-ops and CMS admin rather than senior writing; insurance-services domain; pay not disclosed (flag: unstated).",
+  "summary": "Support web publishing strategy and administration for external and internal digital channels via a CMS; manage content updates; 2-6 yrs, Bengaluru.",
+  "found": "2026-11-07",
+  "id": "artex-risk-solutions-gallagher-gcoe-anal"
+ },
+ {
+  "title": "Training Content Developer",
+  "company": "ZEISS",
+  "location": "Bengaluru (Hybrid)",
+  "url": "https://www.naukri.com/job-listings-training-content-developer-zeiss-bengaluru-2-to-7-years-041126023239",
+  "source": "Naukri",
+  "posted": "2 days ago (05 Nov 2026)",
+  "score": 63,
+  "matched": "Content development + stakeholder/SME collaboration + brand voice; Bengaluru; 5 yrs.",
+  "gaps": "L&D / instructional-design content, not marketing/SEO/UX writing (her core); pay not disclosed (flag: unstated).",
+  "summary": "Design and develop instructor-led and self-learning training content for employees across VIS/COM entities, converting business requirements into learning materials; 2-7 yrs, Bengaluru hybrid.",
+  "found": "2026-11-07",
+  "id": "zeiss-training-content-developer"
  }
 ]

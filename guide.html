@@ -1,0 +1,76 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>How to Use the Job Board</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+:root{--bg:#f6f7f9;--surface:#fff;--fg:#17202e;--muted:#5d6878;--line:#dde1e8;--accent:#1d4ed8;--note:#e3ebfd}
+@media (prefers-color-scheme:dark){:root{--bg:#0f141b;--surface:#171e28;--fg:#e6eaf0;--muted:#9aa5b5;--line:#2a3342;--accent:#7aa2ff;--note:#1e2a47;color-scheme:dark}}
+body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.6 "IBM Plex Sans",system-ui,sans-serif;padding:24px max(16px,env(safe-area-inset-right)) 56px max(16px,env(safe-area-inset-left))}
+main{max-width:760px;margin:0 auto}
+h1{font:600 30px/1.15 Fraunces,Georgia,serif;margin:0 0 6px;text-wrap:balance}
+h2{font:600 22px/1.2 Fraunces,Georgia,serif;margin:40px 0 8px;text-wrap:balance}
+p,li{max-width:65ch}.lead{color:var(--muted)}
+a{color:var(--accent)}
+.step{display:flex;gap:12px;margin:18px 0 6px;font-weight:600}
+.step b{flex:none;width:28px;height:28px;border-radius:50%;background:var(--accent);color:var(--bg);display:grid;place-items:center;font-size:14px}
+figure{margin:10px 0 22px}figcaption{color:var(--muted);font-size:14px;margin-top:6px}
+img{max-width:100%;height:auto;border:1px solid var(--line);border-radius:8px;background:var(--surface)}
+.phones{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px}
+.phones img{width:100%}
+.note{background:var(--note);border-radius:8px;padding:10px 14px;margin:14px 0}
+code{background:var(--surface);border:1px solid var(--line);border-radius:4px;padding:1px 5px;font-size:14px}
+.toc a{display:block}
+</style></head><body><main>
+<h1>How to use the job board</h1>
+<p class="lead">A public list of content-writing jobs, scored against Anchal's resume, each with a tailored resume you can download as PDF. Updated every morning. No sign-in needed. The board never applies for you: you apply yourself from each posting's own page.</p>
+<p><a href="./">Open the board</a> · <a href="guide/sample-resume.pdf">Sample tailored resume (PDF)</a></p>
+<div class="toc"><strong>Contents</strong>
+<a href="#read">1. Reading the dashboard</a><a href="#contact">2. Save your contact details once</a><a href="#mobile">3. Apply from your phone: worked example</a><a href="#tips">4. Tips and limits</a></div>
+
+<h2 id="read">1. Reading the dashboard</h2>
+<figure><img src="guide/d1-home.png" alt="Job board home with contact form, status filters and ranked jobs" loading="lazy"><figcaption>Top: contact details. Middle: status filters. Below: jobs ranked by match score.</figcaption></figure>
+<ul>
+<li><b>Score</b> (0–100) is how well the job matches the resume: title, skills, years of experience, location and domain. Green is 75+, blue 70–74. Jobs under 60 are never shown.</li>
+<li><b>Open posting ↗</b> goes to the original job page (Naukri, Indeed, Shine, Y Combinator startups and others).</li>
+<li><b>Status</b> (New, Approved to apply, Applied, Skip) is your own tracker. It is saved only in your browser. Use the chips at the top to filter.</li>
+<li><b>Fit, gaps and tailored resume</b> opens the details. <em>Gaps</em> include whether pay is shown. A tailored resume exists only for scores of 70 and above.</li>
+</ul>
+<figure><img src="guide/d3-job.png" alt="Expanded job card showing why it matches, gaps and the resume text" loading="lazy"><figcaption>An opened job: the role, why it matches, gaps, then the tailored resume with Copy and Download buttons.</figcaption></figure>
+
+<h2 id="contact">2. Save your contact details once</h2>
+<p>Enter mobile, email and LinkedIn in the box at the top and tap <b>Save details</b>. They are added to every resume you download or copy. They stay in your own browser and are never uploaded. If you clear site data or switch phone, enter them again.</p>
+<figure><img src="guide/d2-contact.png" alt="Contact details form filled with example values" loading="lazy"><figcaption>The form with example values. Use your real ones.</figcaption></figure>
+
+<h2 id="mobile">3. Apply from your phone: worked example</h2>
+<p>Example job: <b>Senior B2B Content Writer at Codilar Technologies, Bengaluru</b> (score 92, found on Indeed). Any job with a resume works the same way.</p>
+
+<div class="step"><b>1</b>Open the board and save your details</div>
+<p>Open the board link in Chrome or Safari. Scroll to the form, fill the three fields and tap <b>Save details</b>.</p>
+<div class="phones"><figure><img src="guide/m1-home.png" alt="Board on a phone"><figcaption>Board on a phone.</figcaption></figure><figure><img src="guide/m2-contact.png" alt="Details saved on a phone"><figcaption>Contact details filled in.</figcaption></figure></div>
+
+<div class="step"><b>2</b>Open a job and check the fit</div>
+<p>Tap <b>Fit, gaps and tailored resume</b> under the job. Read <em>Why it matches</em> and <em>Gaps</em> (here: pay not shown). Your contact line already appears at the top of the resume text.</p>
+<div class="phones"><figure><img src="guide/m3-job.png" alt="Codilar job opened on a phone"><figcaption>The Codilar job opened.</figcaption></figure></div>
+
+<div class="step"><b>3</b>Download the tailored resume</div>
+<p>Scroll to the buttons under the resume text and tap <b>Download PDF</b>. The file is named like <code>Codilar-Technologies-Senior-B2B-Content-Writer-Anchal-Nayak.pdf</code>.</p>
+<div class="phones"><figure><img src="guide/m4-buttons.png" alt="Copy text, Download PDF and LaTeX buttons"><figcaption>Download PDF sits under the resume text.</figcaption></figure></div>
+<p>Where it goes: on iPhone it opens in Safari's downloads and you can find it in the Files app under Downloads. On Android Chrome it is in Files → Downloads. This is the file you will upload in step 5.</p>
+<figure><img src="guide/resume-1.png" alt="Downloaded PDF: one-page tailored resume with the saved contact line" loading="lazy"><figcaption>The downloaded PDF (page 1). Summary and skills are reworded for this job, using only facts from the original resume.</figcaption></figure>
+
+<div class="step"><b>4</b>Open the posting and confirm it is still open</div>
+<p>Go back to the board and tap <b>Open posting ↗</b>. It opens Indeed. Postings were open when found but companies close roles early, so look for an <em>Apply</em> button. If it says the job is closed or expired, set the board status to <b>Skip</b>.</p>
+<div class="step"><b>5</b>Apply on the company or job-site page</div>
+<p>Tap <b>Apply</b>. Sites like Indeed, Naukri or Shine may ask you to sign in or create a profile. When it asks for a resume, choose <b>Upload resume</b>, then pick the PDF from Files / Downloads. Check name, phone and email are right, add a cover note if the form asks, and submit.</p>
+<div class="note">Cover note idea, using the "Why it matches" text: "I have 5 years of B2B content experience across thought-leadership blogs, case studies and whitepapers for global tech and SaaS clients, and I would like to bring that to Codilar's content team."</div>
+<div class="step"><b>6</b>Mark it as applied</div>
+<p>Back on the board, set the job's status to <b>Applied</b> so you can filter it out of the New list later.</p>
+
+<h2 id="tips">4. Tips and limits</h2>
+<ul>
+<li><b>Two other buttons.</b> <em>Copy text</em> copies the resume text for forms that want pasted text. <em>Download LaTeX</em> gives a <code>.tex</code> file for Overleaf.</li>
+<li><b>Pay.</b> The aim is 12 LPA or more. Jobs with stated pay below 10.5 LPA are dropped; when pay is not shown the job says so in Gaps. YC startups often list pay in USD.</li>
+<li><b>Fresh.</b> Only postings from the last 7 days are added, and the list refreshes each morning.</li>
+<li><b>No auto-apply.</b> Nothing is submitted for you. You always apply on the original site.</li>
+<li><b>Privacy.</b> The board page contains no phone or email. What you type stays in your browser.</li>
+<li><b>If a button says "PDF library blocked".</b> Some ad blockers stop the PDF tool from loading. Turn the blocker off for this page, or use Copy text.</li>
+</ul>
+</main></body></html>

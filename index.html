@@ -213,6 +213,9 @@ function render(){
     STATUSES.forEach(s=>{const o=el("option",null,s);o.value=s;if(s===st)o.selected=true;sel.append(o)});
     sel.disabled=!canWrite;
     sel.onchange=()=>{LS[j.id]=sel.value;try{localStorage.setItem("st",JSON.stringify(LS))}catch{}render()};
+    // Opening the posting or downloading the tailored resume counts as applying — mark it, in place.
+    const applyNow=()=>{if((LS[j.id]||"New")==="Applied")return;LS[j.id]="Applied";try{localStorage.setItem("st",JSON.stringify(LS))}catch{}sel.value="Applied";li.className="job st-Applied"};
+    a.addEventListener("click",applyNow);
     side.append(a,sel);row.append(main,side);li.append(row);
     const d=el("details");d.append(el("summary",null,"Fit, gaps"+(j.resume?" and tailored resume":"")));
     const det=el("div","det");
@@ -224,12 +227,12 @@ function render(){
       const pre=el("pre",null,txt);const cp=el("button","copy","Copy text");cp.type="button";
       cp.onclick=async()=>{try{await navigator.clipboard.writeText(txt);cp.textContent="Copied"}catch{const r=document.createRange();r.selectNodeContents(pre);const s=getSelection();s.removeAllRanges();s.addRange(r);cp.textContent="Selected, press copy"}};
       w.append(pre);det.append(w,cp);
-      const pdf=el("button","copy","Download PDF");pdf.type="button";pdf.onclick=()=>savePdf(j,pdf,fbase+".pdf");det.append(pdf);
+      const pdf=el("button","copy","Download PDF");pdf.type="button";pdf.onclick=()=>{savePdf(j,pdf,fbase+".pdf");applyNow()};det.append(pdf);
       if(j.latex){
         const row2=el("div","btns");
         const fname=(j.company+"-"+j.title).replace(/[^A-Za-z0-9]+/g,"-").replace(/^-|-$/g,"").slice(0,60)+"-Anchal-Nayak.tex";
         const dl=el("button","copy","Download LaTeX (.tex)");dl.type="button";
-        dl.onclick=()=>{const a=document.createElement("a");a.href=URL.createObjectURL(new Blob([latexFor(j)],{type:"text/plain"}));a.download=fname;a.click();dl.textContent="Saved"};
+        dl.onclick=()=>{const a=document.createElement("a");a.href=URL.createObjectURL(new Blob([latexFor(j)],{type:"text/plain"}));a.download=fname;a.click();dl.textContent="Saved";applyNow()};
         const cl=el("button","copy","Copy LaTeX");cl.type="button";
         cl.onclick=async()=>{try{await navigator.clipboard.writeText(latexFor(j));cl.textContent="Copied"}catch{cl.textContent="Copy blocked"}};
         row2.append(dl,cl);det.append(row2,el("p","meta","Paste into Overleaf or compile with pdflatex. Contact line comes from the details saved above."));

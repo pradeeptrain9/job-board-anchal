@@ -1,25 +1,31 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Anchal Job Tracker</title>
 <meta name="claude:viewport-fit-sides" content="cover">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600&family=IBM+Plex+Mono:wght@500&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Nunito:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@500&display=swap">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 <style>
 /* Layout: sticky filter bar over a ranked list of job rows; a row expands to show fit, gaps and the tailored resume. */
 :root{
-  --bg:#f6f7f9; --surface:#ffffff; --fg:#17202e; --muted:#5d6878; --line:#dde1e8;
-  --accent:#1d4ed8; --accent-fg:#ffffff;
-  --good:#146c43; --good-bg:#dff3e7; --warn:#8a5a00; --warn-bg:#fbeccb; --bad:#8f2b2b; --bad-bg:#f6dcdc; --info-bg:#e3ebfd;
-  --display:"Fraunces",Georgia,serif; --body:"IBM Plex Sans",system-ui,sans-serif; --mono:"IBM Plex Mono",ui-monospace,monospace;
+  --bg:#f5edda; --surface:#fffdf5; --fg:#43392a; --muted:#8a7a5e; --line:#e7dabb;
+  --accent:#5f8a46; --accent-fg:#fffdf5;
+  --good:#3f7d4e; --good-bg:#dff0da; --warn:#9a6a1b; --warn-bg:#fbeccb; --bad:#a6462f; --bad-bg:#f7ddd2; --info-bg:#dceaf3;
+  --sky-top:#aed9ee; --sky-bot:#f3ecd6; --sun:#f6d77a; --hill-far:#bcd99b; --hill-near:#8fc07a; --cloud:#fffdf8;
+  --shadow:0 6px 20px rgba(120,96,54,.14); --shadow-sm:0 2px 8px rgba(120,96,54,.10); --radius:16px;
+  --display:"Fraunces",Georgia,serif; --body:"Nunito",system-ui,sans-serif; --mono:"IBM Plex Mono",ui-monospace,monospace;
 }
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
-  --bg:#0f141b; --surface:#171e28; --fg:#e6eaf0; --muted:#9aa5b5; --line:#2a3342;
-  --accent:#7aa2ff; --accent-fg:#0f141b;
-  --good:#6fd3a0; --good-bg:#16382a; --warn:#f0c060; --warn-bg:#3d2f10; --bad:#f19a9a; --bad-bg:#401c1c; --info-bg:#1e2a47; color-scheme:dark}}
+  --bg:#1b2333; --surface:#263147; --fg:#efe6d2; --muted:#b2a788; --line:#3a475f;
+  --accent:#9ac47a; --accent-fg:#1b2333;
+  --good:#8fd39f; --good-bg:#203a2a; --warn:#e8c06a; --warn-bg:#3e3114; --bad:#e8a48c; --bad-bg:#45271f; --info-bg:#25364f;
+  --sky-top:#2a3a57; --sky-bot:#1b2333; --sun:#e8c06a; --hill-far:#3f5a48; --hill-near:#557a53; --cloud:#cdd8e6;
+  --shadow:0 6px 22px rgba(0,0,0,.38); --shadow-sm:0 2px 10px rgba(0,0,0,.30); color-scheme:dark}}
 :root[data-theme="dark"]{
-  --bg:#0f141b; --surface:#171e28; --fg:#e6eaf0; --muted:#9aa5b5; --line:#2a3342;
-  --accent:#7aa2ff; --accent-fg:#0f141b;
-  --good:#6fd3a0; --good-bg:#16382a; --warn:#f0c060; --warn-bg:#3d2f10; --bad:#f19a9a; --bad-bg:#401c1c; --info-bg:#1e2a47; color-scheme:dark}
-body{background:var(--bg);color:var(--fg);font:15px/1.5 var(--body);
-  padding-block:24px 48px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+  --bg:#1b2333; --surface:#263147; --fg:#efe6d2; --muted:#b2a788; --line:#3a475f;
+  --accent:#9ac47a; --accent-fg:#1b2333;
+  --good:#8fd39f; --good-bg:#203a2a; --warn:#e8c06a; --warn-bg:#3e3114; --bad:#e8a48c; --bad-bg:#45271f; --info-bg:#25364f;
+  --sky-top:#2a3a57; --sky-bot:#1b2333; --sun:#e8c06a; --hill-far:#3f5a48; --hill-near:#557a53; --cloud:#cdd8e6;
+  --shadow:0 6px 22px rgba(0,0,0,.38); --shadow-sm:0 2px 10px rgba(0,0,0,.30); color-scheme:dark}
+body{background:linear-gradient(var(--sky-top),var(--sky-bot) 42%,var(--bg) 42%) fixed,var(--bg);color:var(--fg);font:16px/1.6 var(--body);
+  padding-block:24px 56px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
 .wrap{max-width:980px;margin:0 auto}
 h1{font:600 28px/1.15 var(--display);margin:0 0 4px;text-wrap:balance}
 .sub{color:var(--muted);margin:0 0 20px}
@@ -58,11 +64,60 @@ pre{white-space:pre-wrap;font:13px/1.5 var(--body);background:var(--bg);border:1
 .prof .r{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
 .empty{padding:32px 16px;text-align:center;color:var(--muted);border:1px dashed var(--line);border-radius:8px}
 @media(max-width:560px){.row{grid-template-columns:48px minmax(0,1fr)}.side{grid-column:1/-1;flex-direction:row;justify-content:space-between;align-items:center}}
+
+/* ---- Ghibli layer: painterly sky, soft hills, warm rounded cards ---- */
+.hero{position:relative;height:150px;margin:-8px 0 18px;border-radius:22px;overflow:hidden;
+  background:linear-gradient(var(--sky-top),color-mix(in srgb,var(--sky-top),var(--sky-bot) 60%));box-shadow:var(--shadow-sm)}
+.hero .sun{position:absolute;top:26px;right:38px;width:64px;height:64px;border-radius:50%;
+  background:radial-gradient(circle at 50% 45%,var(--sun),color-mix(in srgb,var(--sun),transparent 20%));
+  box-shadow:0 0 42px 14px color-mix(in srgb,var(--sun),transparent 55%)}
+.hero .hill{position:absolute;left:-5%;right:-5%;border-radius:50%/60px}
+.hero .hill.far{bottom:-70px;height:130px;background:var(--hill-far);opacity:.9}
+.hero .hill.near{bottom:-86px;height:120px;background:var(--hill-near);left:30%;right:-15%}
+.hero .hill.near2{bottom:-92px;height:110px;background:color-mix(in srgb,var(--hill-near),#000 8%);left:-20%;right:45%}
+.hero .cloud{position:absolute;height:20px;background:var(--cloud);border-radius:999px;opacity:.92;
+  box-shadow:0 0 0 0 var(--cloud);animation:drift 26s linear infinite}
+.hero .cloud::before,.hero .cloud::after{content:"";position:absolute;bottom:0;background:var(--cloud);border-radius:50%}
+.hero .cloud::before{width:26px;height:26px;left:12px;bottom:2px}.hero .cloud::after{width:20px;height:20px;right:14px;bottom:3px}
+.hero .c1{top:34px;left:12%;width:64px;animation-duration:30s}
+.hero .c2{top:62px;left:44%;width:48px;opacity:.8;animation-duration:38s;animation-delay:-8s}
+.hero .c3{top:20px;left:70%;width:40px;opacity:.7;animation-duration:34s;animation-delay:-16s}
+@keyframes drift{from{transform:translateX(-60px)}to{transform:translateX(120px)}}
+@media(prefers-reduced-motion:reduce){.hero .cloud{animation:none}}
+
+h1{font-weight:700;letter-spacing:-.01em}
+.prof,.job{border-radius:var(--radius);box-shadow:var(--shadow-sm)}
+.prof{background:var(--surface);border-color:color-mix(in srgb,var(--line),transparent 20%)}
+.job{transition:transform .14s ease,box-shadow .14s ease}
+.job:hover{transform:translateY(-2px);box-shadow:var(--shadow)}
+.bar button,.copy,select,.prof input,#t-jd{border-radius:999px;transition:background .14s,border-color .14s,transform .1s}
+.prof input,#t-jd{border-radius:14px}
+.bar button:hover,.copy:hover{border-color:var(--accent);background:color-mix(in srgb,var(--accent),transparent 88%)}
+.copy{font-weight:700}
+.copy:active,.bar button:active{transform:translateY(1px)}
+.score{border-radius:14px;font-weight:600;box-shadow:inset 0 0 0 1px color-mix(in srgb,currentColor,transparent 80%)}
+.apply{font-weight:700}
+.new{border-radius:999px;background:var(--accent)}
+/* Tailor panel: friendlier, clearer */
+#tailor{background:
+  radial-gradient(120px 120px at 92% -10%,color-mix(in srgb,var(--sun),transparent 78%),transparent),
+  var(--surface)}
+#tailor h2::before{content:"🌿 ";filter:saturate(.8)}
+#tailor button[type=submit]{background:var(--accent);color:var(--accent-fg);border-color:var(--accent);padding:9px 18px;font-size:14px}
+#tailor button[type=submit]:hover{background:color-mix(in srgb,var(--accent),#000 8%)}
+#t-out:not(:empty){margin-top:6px;padding-top:12px;border-top:1px dashed var(--line)}
+#t-out .score{min-width:56px;padding:10px 0}
+pre{border-radius:14px;background:color-mix(in srgb,var(--bg),transparent 25%)}
 </style></head><body>
 
 <div class="wrap">
-  <h1>Anchal Job Tracker</h1>
-  <p class="sub">Content writing roles, scored against the resume. Updated every morning. Apply only via each posting link. Statuses are kept in your browser. <a href="guide.html">How to use this board</a></p>
+  <div class="hero" aria-hidden="true">
+    <div class="sun"></div>
+    <div class="cloud c1"></div><div class="cloud c2"></div><div class="cloud c3"></div>
+    <div class="hill near2"></div><div class="hill far"></div><div class="hill near"></div>
+  </div>
+  <h1>Anchal's Job Garden</h1>
+  <p class="sub">Content-writing roles, hand-picked and scored against your resume every morning. Tailor a resume to any job below, then apply through each posting link. Your statuses stay in this browser. <a href="guide.html">How to use this board</a></p>
   <form class="prof" id="prof">
     <h2>Your contact details (added to every tailored resume)</h2>
     <div class="f">
@@ -260,13 +315,25 @@ function scoreDet(jd){
   return {score:Math.max(0,Math.min(100,s)),matched:"Title, skills and domain overlap with the posting (built-in scorer).",gaps:"Estimate only — add a Gemini key for a precise score with specific matched/gap notes."};
 }
 // Backend LLM tailoring. Set TAILOR_API to your deployed Worker URL (see tailor-worker/). Key lives only in the backend secret.
-const TAILOR_API="";
+// Gemini's FREE tier takes minutes per call, so the board defaults to the instant built-in engine.
+// To turn Gemini on, set TAILOR_API to the Worker URL below. Key lives only in the backend secret.
+const TAILOR_API=""; // "https://anchal-tailor.anchal-tailor-9346.workers.dev"
 function normSkills(llm){const base=new Set(RESUME.skills);let skills=Array.isArray(llm)?llm.filter(s=>base.has(s)):[];RESUME.skills.forEach(s=>{if(!skills.includes(s))skills.push(s)});return skills;}
-async function backendTailor(jd){
+async function backendTailor(jd,onwait){
   const r=await fetch(TAILOR_API,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({jd:jd.slice(0,7000),facts:{summary:RESUME.summary,skills:RESUME.skills,experience:RESUME.experience}})});
   if(!r.ok)throw new Error("backend "+r.status);
-  const o=await r.json();if(o.error)throw new Error(o.error);
-  return {score:Math.max(0,Math.min(100,parseInt(o.score)||0)),matched:String(o.matched||""),gaps:String(o.gaps||""),summary:String(o.summary||RESUME.summary),skills:normSkills(o.skills),experience:RESUME.experience,engine:"Gemini"};
+  const sub=await r.json();if(sub.error)throw new Error(sub.error);
+  if(!sub.id)throw new Error("no job id");
+  for(let i=0;i<12;i++){ // poll ~36s, then fall back to the instant engine
+    await new Promise(res=>setTimeout(res,3000));
+    if(onwait)onwait(i);
+    const pr=await fetch(TAILOR_API+"?id="+encodeURIComponent(sub.id));
+    if(!pr.ok)continue;
+    const p=await pr.json();
+    if(p.status==="done"){const o=p.result;return {score:Math.max(0,Math.min(100,parseInt(o.score)||0)),matched:String(o.matched||""),gaps:String(o.gaps||""),summary:String(o.summary||RESUME.summary),skills:normSkills(o.skills),experience:RESUME.experience,engine:"Gemini"};}
+    if(p.status==="error")throw new Error(p.error||"gemini error");
+  }
+  throw new Error("timed out after ~2.5 min");
 }
 $("#tailor").onsubmit=async e=>{
   e.preventDefault();
@@ -274,7 +341,7 @@ $("#tailor").onsubmit=async e=>{
   if(url&&!jd){msg.textContent="Fetching job page…";try{const r=await fetch("https://r.jina.ai/"+url);jd=(await r.text()).trim();if(jd.length<120)throw 0;}catch{msg.textContent="Couldn't fetch that link (bot-blocked or offline). Paste the job description text below and generate again.";return;}}
   if(!jd){msg.textContent="Add a job link or paste the job description text.";return;}
   let data,note;
-  if(TAILOR_API){msg.textContent="Tailoring with Gemini…";try{data=await backendTailor(jd)}catch(err){note="LLM backend unavailable ("+err.message+") — used the built-in engine.";}}
+  if(TAILOR_API){msg.textContent="Tailoring with Gemini… (can take 30-90s on the free tier)";try{data=await backendTailor(jd,i=>{msg.textContent="Tailoring with Gemini… "+((i+1)*3)+"s";});}catch(err){note="LLM backend unavailable ("+err.message+") — used the built-in engine.";}}
   if(!data){data={...tailor(jd),...scoreDet(jd),engine:"built-in"};}
   const title=((jd.split("\n").find(l=>l.trim())||"Target role").trim()).slice(0,70);
   const j={title,company:"",resume:{summary:data.summary,skills:data.skills,experience:data.experience}};j.latex=buildLatex(j.resume);

@@ -72,6 +72,16 @@ pre{white-space:pre-wrap;font:13px/1.5 var(--body);background:var(--bg);border:1
     </div>
     <div class="r"><button class="copy" type="submit">Save details</button><span class="meta" id="p-msg">Stays in this browser only; never uploaded.</span></div>
   </form>
+  <form class="prof" id="tailor">
+    <h2>Tailor a resume to any job</h2>
+    <div class="f">
+      <label>Job link<input id="t-url" type="url" placeholder="https://… (paste the posting URL)"></label>
+    </div>
+    <label style="font-size:12px;color:var(--muted);display:grid;gap:3px">Or paste the job description text (used if the link can't be fetched)
+      <textarea id="t-jd" rows="4" style="font:inherit;font-size:13px;padding:8px 9px;border:1px solid var(--line);border-radius:6px;background:var(--bg);color:var(--fg);resize:vertical"></textarea></label>
+    <div class="r"><button class="copy" type="submit">Generate tailored resume</button><span class="meta" id="t-msg">Runs in your browser. If an LLM backend is configured it returns Gemini-tailored prose + a match score; otherwise a built-in engine tailors it. The link goes to a free reader (r.jina.ai) and the job text to the backend; your contact details never leave this page. No API key is stored here.</span></div>
+    <div id="t-out" class="det"></div>
+  </form>
   <div class="bar" id="bar" role="group" aria-label="Filter by status"></div>
   <ul class="list" id="list"></ul>
 </div>
@@ -181,6 +191,111 @@ $("#prof").onsubmit=async e=>{
   e.preventDefault();profile={phone:F[0].value.trim(),email:F[1].value.trim(),linkedin:F[2].value.trim()};
   try{localStorage.setItem("profile",JSON.stringify(profile))}catch{}
   $("#p-msg").textContent="Saved in this browser. Resumes now use these details.";render();
+};
+// ---- Tailor-to-any-job (deterministic, in-browser, no LLM) ----
+const RESUME={
+  summary:"Copywriter with 5 years of experience specializing in marketing, SEO/GEO, and UX writing. I deliver high-performing B2B and B2C content and lead campaign strategy across landing pages, blogs, targeted email marketing, whitepapers, ad copies, case studies and social media. Skilled in leveraging Google Analytics, Figma, and the meaningful use of AI to drive engagement.",
+  skills:["Digital Content Writing","Marketing/Business Writing","UX Writing, Microcopy","SEO/AEO/GEO","Google Analytics","Social Media Marketing","Email Campaigns","B2B, D2C, SaaS Writing","End-to-end Campaign Strategy","Software Documentation","Stakeholder Communication","Brand Voice & Tone Adaptation","Figma, Canva","Adobe Photoshop","Trello, Jira, Sheets","Zoho CRM"],
+  experience:[
+    {company:"Randstad Digital, Hyderabad",role:"Content Marketing Specialist",dates:"Aug 2025 – Present",bullets:["Strategized and executed full-funnel marketing campaigns, producing high-converting landing pages, case studies, emails (1:1/marketing), social media content, and lead-generation assets like e-books and whitepapers.","Collaborated with cross-functional stakeholders across Europe, APAC, and India to adapt regional assets and streamline translation workflows using AI-driven tools.","Authored high-impact B2B content, including thought leadership blogs, marketing newsletters, sales pitch decks, and email sequences, while synthesizing data-heavy reports into actionable, audience-focused takeaways."]},
+    {company:"Cognizant Technology Solutions, Hyderabad",role:"Content Writer and Reviewer - SME",dates:"Oct 2023 – Aug 2025",bullets:["Developed and optimized high-performance B2B content for global tech clients, ensuring 100% alignment with brand guidelines while leading launch campaigns and documentation for assets like Google Maps and Pixel.","Enhanced UX/UI workflows by authoring conversational content, effectively reducing user support queries by 30% through intuitive navigation.","Improved data quality and operational efficiency by reviewing content for AI model training, resulting in a 50% boost in accuracy, and establishing internal repository documentation to standardize organizational processes."]},
+    {company:"Coach Foundation",role:"SEO Content Writer",dates:"Sep 2021 – Jul 2023",bullets:["Drove organic growth and visibility by developing SEO-optimized blogs, landing pages, and homepages, resulting in a 34% increase in search visibility and a 25% boost in overall website traffic.","Executed targeted D2C and coaching campaigns by crafting brand-aligned social media content and email sequences to drive engagement and audience retention.","Optimized performance and project workflows by managing Trello, overseeing freelancer collaborations, and utilizing Google Analytics to extract actionable insights for improved ROI."]}
+  ]
+};
+const SUMS={
+  tech:"Content writer with 5 years including software documentation, SME content review and UX/conversational copy for global tech products. I turn complex features into clear, structured docs and cut support load through intuitive content.",
+  ux:"UX and content writer with 5 years crafting microcopy, in-product flows and conversational content that reduced support queries by 30%. I pair user-first writing with brand voice and research-driven clarity.",
+  seo:"SEO content writer with 5 years growing organic visibility (34% search-visibility lift, 25% traffic gain) through keyword-led blogs, landing pages and on-page optimisation across B2B and D2C.",
+  copy:"Copywriter with 5 years across landing pages, ad copy, email and social for B2B and D2C brands, pairing sharp brand voice with SEO and analytics.",
+  strategy:"Content strategist with 5 years aligning content to brand guidelines and building documentation standards across global teams, combining campaign strategy, UX writing and analytics.",
+  b2b:"B2B content and copywriter with 5 years driving full-funnel tech marketing — landing pages, case studies, whitepapers, ad copy and email sequences for SaaS and B2B audiences, grounded in SEO/GEO and brand voice."
+};
+const KW={
+  "Digital Content Writing":["content","writing","writer","blog","article","web content","copy"],
+  "Marketing/Business Writing":["marketing","business writing","whitepaper","newsletter","thought leadership"],
+  "UX Writing, Microcopy":["ux","microcopy","in-product","content design","user experience","conversational"],
+  "SEO/AEO/GEO":["seo","aeo","geo","search","keyword","organic","serp"],
+  "Google Analytics":["analytics","ga4","metrics","performance","data"],
+  "Social Media Marketing":["social","instagram","linkedin","social media"],
+  "Email Campaigns":["email","drip","sequence","campaign email"],
+  "B2B, D2C, SaaS Writing":["b2b","d2c","saas","product","enterprise"],
+  "End-to-end Campaign Strategy":["campaign","strategy","funnel","go-to-market","gtm"],
+  "Software Documentation":["documentation","docs","technical","api","user guide","knowledge base","release notes"],
+  "Stakeholder Communication":["stakeholder","cross-functional","collaborate"],
+  "Brand Voice & Tone Adaptation":["brand","voice","tone","messaging"],
+  "Figma, Canva":["figma","canva","design"],
+  "Adobe Photoshop":["photoshop","adobe","creative"],
+  "Trello, Jira, Sheets":["trello","jira","sheets","project management"],
+  "Zoho CRM":["zoho","crm","salesforce","hubspot"]
+};
+function tailor(jd){
+  const t=(jd||"").toLowerCase(),has=(...k)=>k.some(x=>t.includes(x));
+  let summary=RESUME.summary;
+  if(has("documentation","api docs","technical writer","knowledge base","release notes","user guide"))summary=SUMS.tech;
+  else if(has("ux writ","microcopy","content design","in-product","product copy"))summary=SUMS.ux;
+  else if(has("content strategy","governance","content operations"))summary=SUMS.strategy;
+  else if(has("seo","organic","serp","keyword","aeo","geo"))summary=SUMS.seo;
+  else if(has("b2b","saas"))summary=SUMS.b2b;
+  else if(has("copywriter","ad copy","advertising","creative copy"))summary=SUMS.copy;
+  const scored=RESUME.skills.map((s,i)=>{let sc=0;(KW[s]||[]).forEach(k=>{let idx=0;while((idx=t.indexOf(k,idx))>=0){sc++;idx+=k.length}});return{s,sc,i}});
+  scored.sort((a,b)=>b.sc-a.sc||a.i-b.i);
+  return {summary,skills:scored.map(x=>x.s),experience:RESUME.experience};
+}
+function buildLatex(r){
+  const e=texEsc;
+  const L=["\\documentclass[10pt]{article}","\\usepackage[utf8]{inputenc}","\\usepackage[margin=0.7in]{geometry}","\\usepackage[hidelinks]{hyperref}","\\usepackage{enumitem,titlesec}","\\pagestyle{empty}",
+    "\\titleformat{\\section}{\\large\\bfseries\\scshape}{}{0em}{}[\\titlerule]","\\titlespacing*{\\section}{0pt}{8pt}{4pt}","\\setlist[itemize]{leftmargin=1.2em,itemsep=1pt,topsep=2pt}","\\begin{document}",
+    "\\begin{center}{\\LARGE\\bfseries "+e(BASE.name)+"}\\\\[2pt]{\\small "+e(BASE.title)+"}\\\\[2pt]{\\small "+e(contact()||PH)+"}\\end{center}",
+    "\\section*{Summary}",e(r.summary),"\\section*{Professional Skills}",r.skills.map(e).join(" \\textbullet\\ "),"\\section*{Work Experience}"];
+  r.experience.forEach(x=>{L.push("\\noindent\\textbf{"+e(x.company)+"}\\hfill "+e(x.dates)+"\\\\","\\textit{"+e(x.role)+"}","\\begin{itemize}");x.bullets.forEach(b=>L.push("\\item "+e(b)));L.push("\\end{itemize}")});
+  L.push("\\section*{Education}");BASE.education.forEach(x=>L.push("\\noindent\\textbf{"+e(x.line)+"}\\hfill "+e(x.dates)+"\\\\",e(x.sub)+"\\\\[3pt]"));
+  L.push("\\section*{Certifications}","\\begin{itemize}");BASE.certifications.forEach(c=>L.push("\\item "+e(c)));L.push("\\end{itemize}","\\end{document}");
+  return L.join("\n");
+}
+function scoreDet(jd){
+  const t=jd.toLowerCase(),has=(...k)=>k.some(x=>t.includes(x));let s=40;
+  if(has("content writer","copywriter","content marketing","ux writer","content strategist","seo content","content designer","content specialist"))s+=20;
+  let hits=0;Object.values(KW).forEach(ks=>{if(ks.some(k=>t.includes(k)))hits++});s+=Math.min(25,hits*2);
+  if(has("b2b","saas","d2c"))s+=8;if(has("hyderabad","bengaluru","bangalore","remote"))s+=7;
+  return {score:Math.max(0,Math.min(100,s)),matched:"Title, skills and domain overlap with the posting (built-in scorer).",gaps:"Estimate only — add a Gemini key for a precise score with specific matched/gap notes."};
+}
+// Backend LLM tailoring. Set TAILOR_API to your deployed Worker URL (see tailor-worker/). Key lives only in the backend secret.
+const TAILOR_API="";
+function normSkills(llm){const base=new Set(RESUME.skills);let skills=Array.isArray(llm)?llm.filter(s=>base.has(s)):[];RESUME.skills.forEach(s=>{if(!skills.includes(s))skills.push(s)});return skills;}
+async function backendTailor(jd){
+  const r=await fetch(TAILOR_API,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({jd:jd.slice(0,7000),facts:{summary:RESUME.summary,skills:RESUME.skills,experience:RESUME.experience}})});
+  if(!r.ok)throw new Error("backend "+r.status);
+  const o=await r.json();if(o.error)throw new Error(o.error);
+  return {score:Math.max(0,Math.min(100,parseInt(o.score)||0)),matched:String(o.matched||""),gaps:String(o.gaps||""),summary:String(o.summary||RESUME.summary),skills:normSkills(o.skills),experience:RESUME.experience,engine:"Gemini"};
+}
+$("#tailor").onsubmit=async e=>{
+  e.preventDefault();
+  const url=$("#t-url").value.trim(),msg=$("#t-msg"),out=$("#t-out");let jd=$("#t-jd").value.trim();
+  if(url&&!jd){msg.textContent="Fetching job page…";try{const r=await fetch("https://r.jina.ai/"+url);jd=(await r.text()).trim();if(jd.length<120)throw 0;}catch{msg.textContent="Couldn't fetch that link (bot-blocked or offline). Paste the job description text below and generate again.";return;}}
+  if(!jd){msg.textContent="Add a job link or paste the job description text.";return;}
+  let data,note;
+  if(TAILOR_API){msg.textContent="Tailoring with Gemini…";try{data=await backendTailor(jd)}catch(err){note="LLM backend unavailable ("+err.message+") — used the built-in engine.";}}
+  if(!data){data={...tailor(jd),...scoreDet(jd),engine:"built-in"};}
+  const title=((jd.split("\n").find(l=>l.trim())||"Target role").trim()).slice(0,70);
+  const j={title,company:"",resume:{summary:data.summary,skills:data.skills,experience:data.experience}};j.latex=buildLatex(j.resume);
+  const fbase=(title+"-Anchal-Nayak").replace(/[^A-Za-z0-9]+/g,"-").replace(/^-|-$/g,"").slice(0,70);
+  out.textContent="";
+  const head=el("div","row");head.style.padding="0 0 10px";
+  head.append(el("div","score "+(data.score>=75?"s-hi":data.score>=60?"s-mid":"s-lo"),data.score));
+  const hmain=el("div");hmain.append(el("p","title","Match score · "+title),el("p","meta",(data.engine==="Gemini"?"Tailored by Gemini":"Tailored by built-in engine")+(note?" — "+note:"")));
+  head.append(hmain);out.append(head);
+  const blk=(h,p,c)=>{const wb=el("div");wb.append(el("h3",null,h),el("p",c,p));return wb};
+  if(data.matched)out.append(blk("Why it matches",data.matched));
+  if(data.gaps)out.append(blk("Gaps",data.gaps,"gap"));
+  const txt=resumeText(j.resume),w=el("div");w.append(el("h3",null,"Tailored resume"));
+  const pre=el("pre",null,txt);w.append(pre);out.append(w);
+  const btns=el("div","btns");
+  const cp=el("button","copy","Copy text");cp.type="button";cp.onclick=async()=>{try{await navigator.clipboard.writeText(txt);cp.textContent="Copied"}catch{cp.textContent="Copy blocked"}};
+  const pdf=el("button","copy","Download PDF");pdf.type="button";pdf.onclick=()=>savePdf(j,pdf,fbase+".pdf");
+  const dl=el("button","copy","Download LaTeX (.tex)");dl.type="button";dl.onclick=()=>{const a=document.createElement("a");a.href=URL.createObjectURL(new Blob([latexFor(j)],{type:"text/plain"}));a.download=fbase+".tex";a.click();dl.textContent="Saved"};
+  btns.append(cp,pdf,dl);out.append(btns);
+  out.append(el("p","meta","Facts are unchanged from your resume — review before sending. Contact line comes from the box above."));
+  msg.textContent="Done. Download below.";
 };
 render();
 fetch("jobs.json").then(r=>r.json()).then(d=>{jobs=d;render()}).catch(()=>$("#list").replaceChildren(el("li","empty","Could not load jobs.")));

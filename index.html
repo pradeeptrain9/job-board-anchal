@@ -318,22 +318,22 @@ function scoreDet(jd){
   return {score:Math.max(0,Math.min(100,s)),matched:"Title, skills and domain overlap with the posting (built-in scorer).",gaps:"Estimate only — add a Gemini key for a precise score with specific matched/gap notes."};
 }
 // Backend LLM tailoring. Set TAILOR_API to your deployed Worker URL (see tailor-worker/). Key lives only in the backend secret.
-// Gemini's FREE tier takes minutes per call, so the board defaults to the instant built-in engine.
-// To turn Gemini on, set TAILOR_API to the Worker URL below. Key lives only in the backend secret.
-const TAILOR_API=""; // "https://anchal-tailor.anchal-tailor-9346.workers.dev"
+// LLM backend (Groq by default — fast & free; Gemini fallback). Key lives only in the backend secret.
+// Set to "" to force the instant built-in engine instead.
+const TAILOR_API="https://anchal-tailor.anchal-tailor-9346.workers.dev";
 function normSkills(llm){const base=new Set(RESUME.skills);let skills=Array.isArray(llm)?llm.filter(s=>base.has(s)):[];RESUME.skills.forEach(s=>{if(!skills.includes(s))skills.push(s)});return skills;}
 async function backendTailor(jd,onwait){
   const r=await fetch(TAILOR_API,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({jd:jd.slice(0,7000),facts:{summary:RESUME.summary,skills:RESUME.skills,experience:RESUME.experience}})});
   if(!r.ok)throw new Error("backend "+r.status);
   const sub=await r.json();if(sub.error)throw new Error(sub.error);
   if(!sub.id)throw new Error("no job id");
-  for(let i=0;i<12;i++){ // poll ~36s, then fall back to the instant engine
-    await new Promise(res=>setTimeout(res,3000));
+  for(let i=0;i<24;i++){ // poll ~36s (1.5s steps), then fall back to the instant engine
+    await new Promise(res=>setTimeout(res,1500));
     if(onwait)onwait(i);
     const pr=await fetch(TAILOR_API+"?id="+encodeURIComponent(sub.id));
     if(!pr.ok)continue;
     const p=await pr.json();
-    if(p.status==="done"){const o=p.result;return {score:Math.max(0,Math.min(100,parseInt(o.score)||0)),matched:String(o.matched||""),gaps:String(o.gaps||""),summary:String(o.summary||RESUME.summary),skills:normSkills(o.skills),experience:RESUME.experience,engine:"Gemini"};}
+    if(p.status==="done"){const o=p.result;return {score:Math.max(0,Math.min(100,parseInt(o.score)||0)),matched:String(o.matched||""),gaps:String(o.gaps||""),summary:String(o.summary||RESUME.summary),skills:normSkills(o.skills),experience:RESUME.experience,engine:o.engine||"AI"};}
     if(p.status==="error")throw new Error(p.error||"gemini error");
   }
   throw new Error("timed out after ~2.5 min");
@@ -344,7 +344,7 @@ $("#tailor").onsubmit=async e=>{
   if(url&&!jd){msg.textContent="Fetching job page…";try{const r=await fetch("https://r.jina.ai/"+url);jd=(await r.text()).trim();if(jd.length<120)throw 0;}catch{msg.textContent="Couldn't fetch that link (bot-blocked or offline). Paste the job description text below and generate again.";return;}}
   if(!jd){msg.textContent="Add a job link or paste the job description text.";return;}
   let data,note;
-  if(TAILOR_API){msg.textContent="Tailoring with Gemini… (can take 30-90s on the free tier)";try{data=await backendTailor(jd,i=>{msg.textContent="Tailoring with Gemini… "+((i+1)*3)+"s";});}catch(err){note="LLM backend unavailable ("+err.message+") — used the built-in engine.";}}
+  if(TAILOR_API){msg.textContent="Tailoring with AI…";try{data=await backendTailor(jd,i=>{msg.textContent="Tailoring with AI… "+Math.round((i+1)*1.5)+"s";});}catch(err){note="AI backend unavailable ("+err.message+") — used the built-in engine.";}}
   if(!data){data={...tailor(jd),...scoreDet(jd),engine:"built-in"};}
   const title=((jd.split("\n").find(l=>l.trim())||"Target role").trim()).slice(0,70);
   const j={title,company:"",resume:{summary:data.summary,skills:data.skills,experience:data.experience}};j.latex=buildLatex(j.resume);
@@ -352,7 +352,7 @@ $("#tailor").onsubmit=async e=>{
   out.textContent="";
   const head=el("div","row");head.style.padding="0 0 10px";
   head.append(el("div","score "+(data.score>=75?"s-hi":data.score>=60?"s-mid":"s-lo"),data.score));
-  const hmain=el("div");hmain.append(el("p","title","Match score · "+title),el("p","meta",(data.engine==="Gemini"?"Tailored by Gemini":"Tailored by built-in engine")+(note?" — "+note:"")));
+  const hmain=el("div");hmain.append(el("p","title","Match score · "+title),el("p","meta",(data.engine&&data.engine!=="built-in"?"Tailored by "+data.engine:"Tailored by built-in engine")+(note?" — "+note:"")));
   head.append(hmain);out.append(head);
   const blk=(h,p,c)=>{const wb=el("div");wb.append(el("h3",null,h),el("p",c,p));return wb};
   if(data.matched)out.append(blk("Why it matches",data.matched));
